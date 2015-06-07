@@ -1,0 +1,15 @@
+.titulo-destacados
+{
+    margin-left: 40px;
+    color: #449d44;
+}
+
+.destacados .producto
+{
+    border: none;
+}
+
+.thumbnail .descripcion
+{
+    text-align: center;
+}

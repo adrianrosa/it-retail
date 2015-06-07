@@ -1,0 +1,31 @@
+.incremento
+{
+	width: 30px;
+	text-align: center;
+	font-weight: bolder;
+}
+
+.mas , .menos
+{
+	cursor: pointer;
+	font-weight: bolder;
+	font-size: 16px;
+	padding: 3px 3px;
+}
+
+.categorias
+{
+	margin-top: 30px;
+	padding-left: 0px;
+}
+
+.titulo-categoria
+{
+	margin-top: 30px;
+    color: #449d44;
+}
+
+.listado .producto
+{
+    border: none;
+}
