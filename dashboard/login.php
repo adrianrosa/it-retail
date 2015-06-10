@@ -6,14 +6,14 @@
         <title>Iniciar sesión - Dashboard - IT Retail</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" href="../assets/css/favicon.ico">
+		<link rel="icon" href="./assets/css/favicon.ico">
 
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 		
-		<link rel="stylesheet" href="../assets/css/dashboard/login.css">
+		<link rel="stylesheet" href="./assets/css/dashboard/login.css">
 		
 		<!--[if lt IE 9]>
-            <script src="../assets/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+            <script src="./assets/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
         <![endif]-->
 		
 	</head>
@@ -24,7 +24,7 @@
             <div class="row">
 				<h1 class="titulo-login">IT Retail - Dashboard</h1>
 				<div class="col-md-6 col-md-offset-3 form-login">
-					<form id="form-login" class="form-horizontal" method="POST" action="control.php">
+					<form id="form-login" class="form-horizontal" method="POST" action="actions/control.php">
 					  <legend>Iniciar sesion</legend>
 					  <div class="form-group">
 						<label for="inputEmail" class="col-sm-2 control-label">Email</label>
@@ -53,10 +53,10 @@
 
         </div>
 		
-		<script src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+		<script src="./assets/js/vendor/jquery-1.11.2.min.js"></script>
 
-        <script src="../assets/js/vendor/bootstrap.min.js"></script>
+        <script src="./assets/js/vendor/bootstrap.min.js"></script>
         
-        <script src="../assets/js/login.js"></script>
+        <script src="./assets/js/login.js"></script>
 	</body>
 </html>

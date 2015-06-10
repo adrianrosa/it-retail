@@ -7,17 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../assets/css/favicon.ico">
+    <link rel="icon" href="./assets/css/favicon.ico">
 
     <title>Dashboard - IT Retail</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 
-    <!-- Custom styles for this template -->
-    <link href="../assets/css/dashboard/dashboard.css" rel="stylesheet">
+    <link href="./assets/css/dashboard/dashboard.css" rel="stylesheet">
 		
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="./assets/css/jquery-ui.css">
 
   </head>
 
@@ -36,7 +35,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html" target="_blank">Ir al ecommerce</a></li>
+            <li><a href="../index.php" target="_blank">Ir al ecommerce</a></li>
 			<li><a href="#"><span class="glyphicon glyphicon-user"></span> Usuario: <?= $_SESSION["email"]; ?></a></li>
             <li><a href="salir.php">Cerrar sesión</a></li>
             <!--<li><a href="#">Profile</a></li>
@@ -139,11 +138,11 @@
 	
     <!--<script src="js/vendor/jquery-1.11.2.min.js"></script>-->
 
-	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="./assets/js/jquery-1.10.2.js"></script>
+	<script src="./assets/js/jquery-ui.js"></script>
 	
-	<script src="../assets/js/dashboard/categoria.js"></script>
-    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+	<script src="./assets/js/dashboard/categoria.js"></script>
+    <script src="./assets/js/vendor/bootstrap.min.js"></script>
 		
   </body>
 </html>

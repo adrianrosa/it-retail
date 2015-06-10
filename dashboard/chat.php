@@ -7,14 +7,14 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../assets/css/favicon.ico">
+    <link rel="icon" href="./assets/css/favicon.ico">
 
     <title>Dashboard - IT Retail</title>
 
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 
-    <link href="../assets/css/dashboard/dashboard.css" rel="stylesheet">
-    <link href="../assets/css/dashboard/chat.css" rel="stylesheet">
+    <link href="./assets/css/dashboard/dashboard.css" rel="stylesheet">
+    <link href="./assets/css/dashboard/chat.css" rel="stylesheet">
       
   </head>
 
@@ -64,8 +64,8 @@
       </div>
     </div>
 
-	<script src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+	<script src="./assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="./assets/js/vendor/bootstrap.min.js"></script>
 		
   </body>
 </html>

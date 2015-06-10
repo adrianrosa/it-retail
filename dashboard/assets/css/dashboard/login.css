@@ -29,3 +29,7 @@
 .btn-iniciar:hover{
 	background-color: #449d99;
 }
+
+#label-error{
+    color: red;
+}

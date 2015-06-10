@@ -1,22 +1,24 @@
-$(document).ready(function(){
-	$('#btn-login').addClass('hide');
-});
-
-function enviarFormLogin(idForm){
+function enviarFormContacto(idForm){
 	
 	limpiarForm($('#inputEmail'));
-	limpiarForm($('#inputPassword'));
+	limpiarForm($('#inputName'));
+	limpiarForm($('#inputMensaje'));
 	
 	var email = $('#inputEmail').val();
-	var password = $('#inputPassword').val();
+	var nombre = $('#inputName').val();
+	var mensaje = $('#inputMensaje').val();
 	var cancelSubmit = false;
 	
 	if(email == null || email == '' || email.length == 0){
 		establecerClase($('#inputEmail'));
 		cancelSubmit = true;
 	}
-	if(password == null || password == '' || password.length == 0){
-		establecerClase($('#inputPassword'));
+	if(nombre == null || nombre == '' || nombre.length == 0){
+		establecerClase($('#inputName'));
+		cancelSubmit = true;
+	}
+	if(mensaje == null || mensaje == '' || mensaje.length == 0){
+		establecerClase($('#inputMensaje'));
 		cancelSubmit = true;
 	}
 	

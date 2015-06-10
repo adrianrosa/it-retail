@@ -1,5 +1,8 @@
 $(document).ready(function(){
 	$('#btn-login').addClass('hide');
+    var errorUsuario = getUrlVars()["errorusuario"];
+    if(errorUsuario != null)
+        $('#label-error').removeClass('hide').html('Usuario o conraseña incorrecta');
 });
 
 function enviarFormLogin(idForm){
@@ -39,4 +42,17 @@ function limpiarForm(elem){
 function establecerClase(elem){
 	elem.closest('.form-group').addClass('has-error').addClass('has-feedback');
 	elem.siblings('.glyphicon-remove').removeClass('hide');
+}
+
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
 }

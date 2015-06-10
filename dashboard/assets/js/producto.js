@@ -14,12 +14,3 @@ $('.menos').click(function(){
 	else if(numero == 1)
 		elem.value = 1;
 });
-
-$('#sub-menu li').click(function(){
-    $(this).siblings().each(function(){
-        if( $(this).hasClass('active') )
-            $(this).removeClass('active');
-    });
-    $(this).addClass('active');
-    $('#titulo-categoria').html( $(this).children('a').html() );
-});

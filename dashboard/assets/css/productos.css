@@ -23,14 +23,9 @@
 {
 	margin-top: 30px;
     color: #449d44;
-    text-transform: capitalize;
 }
 
 .listado .producto
 {
     border: none;
-}
-
-.producto div.descripcion{
-    text-align: center;
 }

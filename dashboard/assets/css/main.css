@@ -1,0 +1,121 @@
+/*body
+{
+    background-color: #d3d3d3;
+    background-size: 100%;
+}*/
+
+/*MENU*/
+.menu
+{
+	margin-bottom:0px; 
+	background: url('../img/fondoGris.jpg');
+}
+
+.menu .navbar-nav .item-menu
+{
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.menu .navbar-nav a.item-menu:hover
+{
+    color: #fff;
+    background-color: #337ab7;
+    border-radius: 3px;
+}
+
+.navbar-header .logo
+{
+    margin: 10px;
+    color: #449d44;
+    font-size: 25px;
+}
+
+.navbar-header .logo:hover
+{
+    color: #fff;
+    background-color: #449d44;
+}
+
+.controles-sesion
+{
+    text-align: right;
+    color: #fff;
+    padding: 15px;
+}
+
+.controles-sesion .btn-primary a,
+.controles-sesion .btn-success a
+{
+	color: #fff;
+	text-decoration: none;
+}
+
+/* ---------------------------------------- */
+
+/*CARRITO DE COMPRAS*/
+.carrito-compras
+{
+    background-color: #D8D8D8;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.carrito
+{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.titulo-carrito
+{
+    font-size: 20px;
+    padding-top: 10px;
+    color: #449d44;
+}
+
+.linea-carrito
+{
+    margin-top: 24px;
+    height:25px;
+}
+
+.linea-carrito.total
+{
+    height:45px;
+    font-weight: bolder;
+}
+
+.carrito .linea-carrito td
+{
+    width: 33%;
+}
+
+.carrito .cabecera-carrito{
+	height: 35px;
+}
+
+.carrito .cabecera-carrito th{
+	text-align: center;
+}
+/* ----------------------------------- */
+
+.label-error{
+	color: #a94442;
+}
+
+/*FOOTER*/
+.footer{
+    background: url('../img/fondoGris.jpg');
+    padding: 14px;
+}
+
+.footer .links{
+    text-align: right;
+}
+
+.footer .links > a {
+    padding: 10px;
+}
+/* -------------------------------------------- */
