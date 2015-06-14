@@ -25,10 +25,12 @@
     }
 
     $request = new Request();
-    $action = $request->action;
+    $action =  $_GET['action']; //$request->action;
     switch($action){
         case "listar":
             listarCategorias($request);
         break;
+        default:
+        listarCategorias($request);
+        break;
     }
-?>

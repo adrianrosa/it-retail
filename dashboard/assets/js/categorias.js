@@ -26,7 +26,7 @@
 (function($ , Handlebars){
     
     var URI = {};
-    URI.GET_CATEGORIAS = "./actions/api.php?action=listar";
+    URI.GET_CATEGORIAS = "http://localhost/versionado/it-retail/dashboard/actions/api.php?action=listar";
      URI.TEMPLATE_CATEGORIAS = "./assets/templates/listado-categorias.html";
     
     var getCategorias = function(){
