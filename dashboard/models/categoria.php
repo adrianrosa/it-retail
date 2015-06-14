@@ -20,7 +20,7 @@ class Categoria
         }
         return $categorias;
     }
-    
+
     public function obtenerCategoria($idCategoria){
         $id = (int) $this->conexion->real_escape_string($idCategoria);
         $query = "SELECT IdCategoria, NombreCategoria, DescripcionCategoria, OrdenCategoria FROM Categoria WHERE IdCategoria = " . $idCategoria;
@@ -45,7 +45,7 @@ class Categoria
         $nombre = $this->conexion->real_escape_string($categoria['NombreCategoria']);
         $descripcion = $this->conexion->real_escape_string($categoria['DescripcionCategoria']);
         $orden = (int) $this->conexion->real_escape_string($categoria['OrdenCategoria']);
-        $query = "UPDATE Categoria SET NombreCategoria = '".$nombre."', DescripcionCategoria = '".$descripcion."', OrdenCategoria = ".$orden." WHERE IdCategoria = ".id:
+        $query = "UPDATE Categoria SET NombreCategoria = '".$nombre."', DescripcionCategoria = '".$descripcion."', OrdenCategoria = ".$orden." WHERE IdCategoria = ".id;
         return $this->conexion->query($query);
     }
     
