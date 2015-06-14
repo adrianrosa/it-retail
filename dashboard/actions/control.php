@@ -12,7 +12,7 @@
         $_SESSION["autenticado"] = "si";
         $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
         $rs->close();
-        header("Location: ../index.php");
+        header("Location: ../categorias.php");
     }else {
         header("Location: ../login.php?errorusuario=si");
         $rs->close();
