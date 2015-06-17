@@ -9,8 +9,8 @@ class Producto
         $this->conexion = Conexion::obtenerInstancia();
     }
     
-    public function obtenerTodasLosProductos(){
-        $query = "SELECT IdProducto, NombreProducto, DescripcionCortaProducto, DescripcionLargaProducto, PrecioProducto, CantidadStockProducto, CategoriaProducto,  EsDestacado, UrlImagenProducto FROM Producto";
+    public function obtenerTodosLosProductos(){
+        $query = "SELECT * FROM Producto;";
         $productos = array();
         if( $result = $this->conexion->query($query) ){
             while( $fila = $result->fetch_assoc() ){
@@ -23,7 +23,7 @@ class Producto
     
     public function obtenerProducto($idProducto){
         $id = (int) $this->conexion->real_escape_string($idProducto);
-        $query = "SELECT IdProducto, NombreProducto, DescripcionCortaProducto, DescripcionLargaProducto, PrecioProducto, CantidadStockProducto, CategoriaProducto,  ProductoEsDestacado FROM Producto WHERE IdProducto =" . $idProducto;
+        $query = "SELECT IdProducto, NombreProducto, DescripcionCortaProducto, DescripcionLargaProducto, PrecioProducto, CantidadStockProducto, CategoriaProducto,  ProductoEsDestacado, UrlImagenProducto FROM Producto WHERE IdProducto =" . $idProducto;
         $result = $this->conexion->query($query);
         return $result->fetch_assoc();
     }
@@ -36,7 +36,8 @@ class Producto
         $cantidad = (int) $this->conexion->real_escape_string($producto['CantidadStockProducto']);
         $categoria = (int) $this->conexion->real_escape_string($producto['CategoriaProducto']);
         $esDestacado = (boolean) $this->conexion->real_escape_string($producto['ProductoEsDestacado']);
-        $query = "INSERT INTO Producto VALUES( DEFAULT, '".$nombre."', '".$descripcionCorta."', '".$descripcionLarga."', ".$precio.", ".$cantidad.", ".$categoria.", ".$esDestacado.")";
+        $urlImagen = (boolean) $this->conexion->real_escape_string($producto['UrlImagenProducto']);
+        $query = "INSERT INTO Producto VALUES( DEFAULT, '".$nombre."', '".$descripcionCorta."', '".$descripcionLarga."', ".$precio.", ".$cantidad.", ".$categoria.", ".$esDestacado.", '".$urlImagen."');";
         if( $this->conexion->query($query) ){
             $producto['IdProducto'] = $this->conexion->insert_id;
             return $producto;
@@ -53,7 +54,8 @@ class Producto
         $cantidad = (int) $this->conexion->real_escape_string($producto['CantidadStockProducto']);
         $categoria = (int) $this->conexion->real_escape_string($producto['CategoriaProducto']);
         $esDestacado = (boolean) $this->conexion->real_escape_string($producto['ProductoEsDestacado']);
-        $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", ProductoEsDestacado = ".$esDestacado."  WHERE IdProducto = ".id;
+        $urlImagen = (boolean) $this->conexion->real_escape_string($producto['UrlImagenProducto']);
+        $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", ProductoEsDestacado = ".$esDestacado.", UrlImagenProducto = '".$urlImagen."'  WHERE IdProducto = ".id;
         return $this->conexion->query($query);
     }
     

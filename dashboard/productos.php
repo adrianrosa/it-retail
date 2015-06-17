@@ -33,7 +33,6 @@
                 <tbody>                                     
               </tbody>
             </table>
-	    <?php require('partials/dialog.php'); ?>
           </div>
         </div>
       </div>
