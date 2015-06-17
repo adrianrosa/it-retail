@@ -1,13 +1,28 @@
+(function($){
+    
 $(document).ready(function(){
-	$('#btn-login').addClass('hide');
     var errorUsuario = getUrlVars()["errorusuario"];
-    if(errorUsuario != null)
-        $('#label-error').removeClass('hide').html('Usuario o conraseña incorrecta');
+    if(errorUsuario != null){
+        $('#label-error').removeClass('hide').html('Usuario o contraseña incorrecta');
+        $('#inputEmail').val(getUrlVars()["email"]);
+    }
 });
 
-function enviarFormLogin(idForm){
-	
-	limpiarForm($('#inputEmail'));
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
+$('#btn-login').on("click", function(){
+    limpiarForm($('#inputEmail'));
 	limpiarForm($('#inputPassword'));
 	
 	var email = $('#inputEmail').val();
@@ -24,15 +39,14 @@ function enviarFormLogin(idForm){
 	}
 	
 	if(cancelSubmit){
-		$('#'+idForm).submit(function(event){
+		$('#form-login').submit(function(event){
 			event.preventDefault();
 		});
 		$('#label-error').removeClass('hide').addClass('label-error');
 	}
 	else
-		$('#'+idForm).unbind('submit');
-	
-}
+		$('#form-login').unbind('submit');
+});
 
 function limpiarForm(elem){
 	elem.closest('.form-group').removeClass('has-error').removeClass('has-feedback');
@@ -44,15 +58,4 @@ function establecerClase(elem){
 	elem.siblings('.glyphicon-remove').removeClass('hide');
 }
 
-function getUrlVars()
-{
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++)
-    {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-    return vars;
-}
+})(jQuery);

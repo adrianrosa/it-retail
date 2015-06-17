@@ -4,6 +4,7 @@ class Conexion extends MySQLi{
     const HOST = 'localhost';
     const USER = 'root';
     const PASSWORD = 'admin';
+    //const PASSWORD = 'root123';
     const DATABASE = 'it-retail';
     
     private function __construct($host, $user, $password, $database){

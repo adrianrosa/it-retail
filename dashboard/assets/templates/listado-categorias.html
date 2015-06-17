@@ -1,12 +1,12 @@
 {{#each categorias}}
-<tr>
+<tr id="categoria-{{IdCategoria}}">
     <td class="IdCategoria">{{IdCategoria}}</td>
     <td class="NombreCategoria">{{NombreCategoria}}</td>
     <td class="DescripcionCategoria">{{DescripcionCategoria}}</td>
     <td class="OrdenCategoria">{{OrdenCategoria}}</td>
     <td>
-        <button class="editar">Editar</button>&nbsp;
-        <button>Eliminar</button>
+        <a class="btn btn-default editar" href="form-categoria.php?IdCategoria={{IdCategoria}}">Editar</a>&nbsp;
+        <a class="btn btn-default eliminar">Eliminar</a>
     </td>
 </tr>
 {{/each}}

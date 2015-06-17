@@ -1,33 +1,11 @@
-/*(function($, Handlebars){
-    var URI = {};
-    URI.OBTENER_CATEGORIAS = "actions/api.php?action=listar-categorias";
-    URI.TEMPLATE_CATEGORIAS = "assets/templates/listado-categorias.html";
-    var obtenerCategorias = function(){
-        $.get("assets/templates/listado-categorias.html", function(template_html){
-            console.log(template_html);
-            $.ajax({
-                url: "actions/api.php?action=listar-categorias",
-                method: 'GET',
-                dataType: 'json'
-            }).done(function(res){
-                alert('hola');
-                if(!res.error){
-                    var context = { categorias: res.data };
-                    var template = Handlebars.compile(template_html);
-                    var html = template(context);
-                    $('#tabla-categorias tbody').html(html);
-                }
-            });
-        })
-    };
-    obtenerCategorias();
-})(jQuery, Handlebars);*/
-
 (function($ , Handlebars){
     
     var URI = {};
-    URI.GET_CATEGORIAS = "http://localhost/versionado/it-retail/dashboard/actions/api.php?action=listar";
-     URI.TEMPLATE_CATEGORIAS = "./assets/templates/listado-categorias.html";
+    URI.GET_CATEGORIAS = "actions/api-categorias.php?action=listar";
+    URI.DELETE_CATEGORIA = "actions/api-categorias.php?action=eliminar";
+    URI.TEMPLATE_CATEGORIAS = "assets/templates/listado-categorias.html";
+    
+    var $tableBody = $("#tabla-categorias tbody");
     
     var getCategorias = function(){
         
@@ -39,7 +17,7 @@
                 method : 'GET',
                 dataType : 'json'
             }).done(function(res){
-                //if(!res.error){
+                if(!res.error){
                     var context = {                  
                         categorias : res.data
                     };
@@ -48,13 +26,59 @@
                     var html = template(context);
                     
                     $("#tabla-categorias tbody").html(html);
-                //}
-            });
-        
-            
+                }
+            });       
+        })        
+    };
+    
+    var deleteCategoria = function(categoriaID){
+        console.log("eliminando categoria " + categoriaID);
+        $.ajax({
+            url : URI.DELETE_CATEGORIA,
+            method : 'POST',
+            dataType : 'json',
+            data : { id : categoriaID}
         })
-        
+        .done(function(res){
+            if(!res.error){
+                $("#categoria-"+categoriaID).remove();
+            }
+        })
+        .fail(function(){
+            alert("error");
+        });        
     };
 
+    var modalConfirm = function(callback){
+      $("#confirm-modal").modal('show');
+
+      $("#modal-btn-si").on("click", function(){
+        callback(true);
+        $("#confirm-modal").modal('hide');
+      });
+
+      $("#modal-btn-no").on("click", function(){
+        callback(false);
+        $("#confirm-modal").modal('hide');
+      });
+    };
+
+    $tableBody.on("click", "a.eliminar", function(event){
+        if(event.confirmado){
+            var id = $(this).closest("tr").find(".IdCategoria").html();
+            deleteCategoria(id);
+        }
+        modalConfirm(function(confirm){
+          if(confirm){
+              $(event.target).trigger({
+                type : "click",
+                confirmado : true
+              });
+          }
+        });
+        return false;
+    });
+    
     getCategorias();
+    
 })(jQuery , Handlebars);

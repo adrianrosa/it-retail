@@ -1,0 +1,17 @@
+{{#each productos}}
+<tr>
+    <td class="IdProducto">{{IdProducto}}</td>
+    <td class="NombreProducto">{{NombreProducto}}</td>
+    <td class="DescripcionCortaProducto">{{DescripcionCortaProducto}}</td>
+    <td class="DescripcionLargaProducto">{{DescripcionLargaProducto}}</td>
+    <td class="PrecioProducto">{{PrecioProducto}}</td>
+    <td class="CategoriaProducto">{{CategoriaProducto}}</td>
+    <td class="CantidadStockProducto">{{CantidadStockProducto}}</td>
+    <td class="EsDestacado">{{EsDestacado}}</td>
+    <td>
+        <button class="editar">Editar</button>&nbsp;
+        <button>Eliminar</button>
+    </td>
+    <td class="UrlImagenProducto hide">{{UrlImagenProducto}}</td>
+</tr>
+{{/each}}

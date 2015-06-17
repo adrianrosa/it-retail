@@ -10,7 +10,7 @@ class Producto
     }
     
     public function obtenerTodasLosProductos(){
-        $query = "SELECT IdProducto, NombreProducto, DescripcionCortaProducto, DescripcionLargaProducto, PrecioProducto, CantidadStockProducto, IdCategoriaProducto,  EsDestacado FROM Producto";
+        $query = "SELECT IdProducto, NombreProducto, DescripcionCortaProducto, DescripcionLargaProducto, PrecioProducto, CantidadStockProducto, CategoriaProducto,  EsDestacado, UrlImagenProducto FROM Producto";
         $productos = array();
         if( $result = $this->conexion->query($query) ){
             while( $fila = $result->fetch_assoc() ){
@@ -36,7 +36,7 @@ class Producto
         $cantidad = (int) $this->conexion->real_escape_string($producto['CantidadStockProducto']);
         $categoria = (int) $this->conexion->real_escape_string($producto['CategoriaProducto']);
         $esDestacado = (boolean) $this->conexion->real_escape_string($producto['ProductoEsDestacado']);
-        $query = "INSERT INTO Producto VALUES( DEFAULT, '".$nombre."', '".$descripcionCorta."', '".$descripcionLarga."', ".$precio", ".$cantidad.", ".$categoria.", ".$esDestacado.")";
+        $query = "INSERT INTO Producto VALUES( DEFAULT, '".$nombre."', '".$descripcionCorta."', '".$descripcionLarga."', ".$precio.", ".$cantidad.", ".$categoria.", ".$esDestacado.")";
         if( $this->conexion->query($query) ){
             $producto['IdProducto'] = $this->conexion->insert_id;
             return $producto;
@@ -53,7 +53,7 @@ class Producto
         $cantidad = (int) $this->conexion->real_escape_string($producto['CantidadStockProducto']);
         $categoria = (int) $this->conexion->real_escape_string($producto['CategoriaProducto']);
         $esDestacado = (boolean) $this->conexion->real_escape_string($producto['ProductoEsDestacado']);
-        $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", ProductoEsDestacado = ".$esDestacado."  WHERE IdProducto = ".id:
+        $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", ProductoEsDestacado = ".$esDestacado."  WHERE IdProducto = ".id;
         return $this->conexion->query($query);
     }
     

@@ -10,7 +10,7 @@ class Categoria
     }
     
     public function obtenerTodasLasCategorias(){
-        $query = "SELECT IdCategoria, NombreCategoria, DescripcionCategoria, OrdenCategoria FROM Categoria";
+        $query = "SELECT IdCategoria, NombreCategoria, DescripcionCategoria, OrdenCategoria FROM Categoria ORDER BY OrdenCategoria;";
         $categorias = array();
         if( $result = $this->conexion->query($query) ){
             while( $fila = $result->fetch_assoc() ){
@@ -45,7 +45,8 @@ class Categoria
         $nombre = $this->conexion->real_escape_string($categoria['NombreCategoria']);
         $descripcion = $this->conexion->real_escape_string($categoria['DescripcionCategoria']);
         $orden = (int) $this->conexion->real_escape_string($categoria['OrdenCategoria']);
-        $query = "UPDATE Categoria SET NombreCategoria = '".$nombre."', DescripcionCategoria = '".$descripcion."', OrdenCategoria = ".$orden." WHERE IdCategoria = ".id;
+        $query = "UPDATE Categoria SET NombreCategoria = '".$nombre."', DescripcionCategoria = '".$descripcion."', OrdenCategoria = ".$orden." WHERE IdCategoria = ".$id;
+        //$query = "UPDATE Categoria SET NombreCategoria = '".$nombre."', DescripcionCategoria = '".$descripcion."' WHERE IdCategoria = ".id;
         return $this->conexion->query($query);
     }
     
