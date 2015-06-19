@@ -35,9 +35,12 @@ class Producto
         $precio = (float) $this->conexion->real_escape_string($producto['PrecioProducto']);
         $cantidad = (int) $this->conexion->real_escape_string($producto['CantidadStockProducto']);
         $categoria = (int) $this->conexion->real_escape_string($producto['CategoriaProducto']);
-        $esDestacado = (boolean) $this->conexion->real_escape_string($producto['ProductoEsDestacado']);
-        $urlImagen = (boolean) $this->conexion->real_escape_string($producto['UrlImagenProducto']);
-        $query = "INSERT INTO Producto VALUES( DEFAULT, '".$nombre."', '".$descripcionCorta."', '".$descripcionLarga."', ".$precio.", ".$cantidad.", ".$categoria.", ".$esDestacado.", '".$urlImagen."');";
+        if($producto['EsDestacado'])
+            $esDestacado = 1;
+        else
+            $esDestacado = 0;
+        $urlImagen = $this->conexion->real_escape_string($producto['UrlImagenProducto']);
+        $query = "INSERT INTO Producto (IdProducto, NombreProducto, DescripcionCortaProducto, DescripcionLargaProducto, PrecioProducto, CantidadStockProducto, Categoria, EsDestacado, UrlImagenProducto) VALUES( NULL, '".$nombre."', '".$descripcionCorta."', '".$descripcionLarga."', ".$precio.", ".$cantidad.", ".$categoria.", ".$esDestacado.", '".$urlImagen."');";
         if( $this->conexion->query($query) ){
             $producto['IdProducto'] = $this->conexion->insert_id;
             return $producto;

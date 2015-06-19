@@ -28,14 +28,16 @@
         require("../models/producto.php");
         $p = new Producto();
         $producto = array();
-        $producto["NombreProducto"] = $request->nombre;
-        $producto["DescripcionCortaProducto"] = $request->descripcionCorta;
-        $producto["DescripcionLargaProducto"] = $request->descripcionLarga;
-        $producto["CantidadStockProducto"] = $request->stock;
-        $producto["PrecioProducto"] = $request->precio;
-        $producto["CategoriaProducto"] = $request->categoria;
-        $producto["EsDestacado"] = $request->esDestacado;
-        $producto["UrlImagenProducto"] = $request->urlImagen;
+        $producto["NombreProducto"] = $_POST["nombre"];
+        $producto["DescripcionCortaProducto"] = $_POST["descripcionCorta"];
+        $producto["DescripcionLargaProducto"] = $_POST["descripcionLarga"];
+        $producto["CantidadStockProducto"] = $_POST["stock"];
+        $producto["PrecioProducto"] = $_POST["precio"];
+        $producto["CategoriaProducto"] = $_POST["categoria"];
+        $esDestacado = isset($_REQUEST["esDestacado"]) ? true : false; 
+        $producto["EsDestacado"] = $esDestacado;
+        $img = $_FILES["urlImagen"];
+        $producto["UrlImagenProducto"] = img['name'];
         if($nuevo = $p->crearProducto($producto)){
             sendResponse(array(
                 "error" => false,

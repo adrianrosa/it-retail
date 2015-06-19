@@ -81,4 +81,18 @@
     
     getCategorias();
     
+    $('#crear-categoria').on('click',
+        function() {
+            var maximo = 1;
+            $('.OrdenCategoria').each(function(){
+                var valor = parseInt($(this).html());
+                if( valor > maximo ){
+                    maximo = valor;
+                }
+            });
+            maximo++;
+            window.location ='form-categoria.php?orden='+maximo;
+        }
+    );
+    
 })(jQuery , Handlebars);

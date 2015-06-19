@@ -2,19 +2,22 @@
     include('seguridad.php');
     require("models/categoria.php");
     $id = isset($_GET["IdCategoria"]) ? $_GET["IdCategoria"] : null;
-    $tituloSeccion = empty($id) ? "Nueva Categoria" : "Editar categoría " . $id;
+    //$tituloSeccion = empty($id) ? "Nueva Categoria" : "Editar categoría " . $id;
     $seccion = "categorias";
+    $tituloSeccion = "Nuevo Categoria";
     $action = empty($id) ? "guardar" : "actualizar";
     $categoria = array();
     if($action == "actualizar"){
         $c = new Categoria();
         $categoria = $c->obtenerCategoria($id);
+        $tituloSeccion = "Editar categoría: " . $categoria["NombreCategoria"];
     }
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php require('partials/header.php') ?>  		  
+    <?php require('partials/header.php') ?>  	
+    <link rel="stylesheet" href="./assets/css/forms.css" />   
   </head>
   <body>
     <?php require('partials/menu-principal.php') ?>
@@ -31,30 +34,34 @@
                     <input type="hidden" name="id" value="<?= $id; ?>"/>                      
                 <?php endif; ?>          
                 <div class="form-group has-feedback">
-                  <label class="control-label col-sm-3" for="nombre">Nombre de la categoría</label>
-                  <div class="col-sm-9">
+                  <label class="control-label col-sm-3 label-form" for="nombre">Nombre de la categoría</label>
+                  <div class="col-sm-9 campo">
                       <input name="nombre" type="text" class="form-control" id="nombre" value="<?= !empty($categoria) ? $categoria["NombreCategoria"] : ""?>">
                       <span class="hide glyphicon glyphicon-remove form-control-feedback"></span>
                       <span class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group has-feedback">
-                  <label class="control-label col-sm-3" for="descripcion">Descripción</label>
-                  <div class="col-sm-9">
+                  <label class="control-label col-sm-3 label-form" for="descripcion">Descripción</label>
+                  <div class="col-sm-9 campo">
                     <textarea name="descripcion" class="form-control" rows="3" id="descripcion"><?= !empty($categoria) ? $categoria["DescripcionCategoria"] : ""; ?></textarea>
                     <span id="descripcion_error_icon" class="hide glyphicon glyphicon-remove form-control-feedback"></span>
                     <span id="helpBlockDescripcion" class="help-block"></span>
                   </div>
                 </div>
                 <div class="form-group has-feedback">
-                  <label class="control-label col-sm-3" for="orden">Orden</label>
-                  <div class="col-sm-9">
-                    <input name="orden" class="form-control" rows="3" id="orden" maxlength="3" value="<?= !empty($categoria) ? $categoria["OrdenCategoria"] : ""; ?>" />
+                  <label class="control-label col-sm-3 label-form" for="orden">Orden</label>
+                  <div class="col-sm-9 campo num">
+                      <a class="btn btn-secondary glyphicon glyphicon-minus-sign menos"></a>
+                      &nbsp;<input type="text" id="orden" value="<?= !empty($categoria) ? $categoria["OrdenCategoria"] : "1"; ?>" maxlength="3" class="incremento" id="orden" name="orden" />&nbsp;
+                    <!--<input name="orden" class="" rows="3" id="orden" maxlength="3" value="" />-->
+                      <a class="btn btn-secondary glyphicon glyphicon-plus-sign mas"></a>
                     <span id="descripcion_error_icon" class="hide glyphicon glyphicon-remove form-control-feedback"></span>
                     <span id="helpBlockDescripcion" class="help-block"></span>
+                      
                   </div>
                 </div>
-                <input type="submit" class="btn btn-primary" name="action" value="<?= $action; ?>"/>
+                <input type="submit" class="btn btn-primary btn-accion" name="action" value="<?= $action; ?>"/>
             </form>
         </div>
       </div>

@@ -1,0 +1,18 @@
+.form-horizontal .form-group .label-form{
+    width: 15%;
+}
+
+.form-horizontal .form-group .campo{
+    width: 65%;
+}
+
+.form-horizontal .btn-accion{
+    margin-left: 50px;
+}
+
+.incremento
+{
+	width: 30px;
+	text-align: center;
+	font-weight: bolder;
+}

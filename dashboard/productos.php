@@ -13,7 +13,7 @@
         </div>
         <div id="main-content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Productos</h1>
-          <button id="crear" class="btn btn-primary nuevo">Nuevo registro</button>
+          <a id="crear" class="btn btn-primary nuevo" href="form-producto.php">Nuevo registro</a>
           <div class="table-responsive">
             <table id="tabla-productos" class="table table-striped tabla-general">
               <thead>

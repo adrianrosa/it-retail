@@ -10,7 +10,7 @@ class Categoria
     }
     
     public function obtenerTodasLasCategorias(){
-        $query = "SELECT IdCategoria, NombreCategoria, DescripcionCategoria, OrdenCategoria FROM Categoria ORDER BY OrdenCategoria;";
+        $query = "SELECT IdCategoria, NombreCategoria, DescripcionCategoria, OrdenCategoria FROM Categoria ORDER BY OrdenCategoria, IdCategoria;";
         $categorias = array();
         if( $result = $this->conexion->query($query) ){
             while( $fila = $result->fetch_assoc() ){
