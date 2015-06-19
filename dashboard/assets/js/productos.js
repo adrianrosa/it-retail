@@ -8,7 +8,7 @@
         
         $.get(URI.TEMPLATE_PRODUCTOS, function(template_text){
             console.log(template_text);
-            
+            console.log(URI.GET_PRODUCTOS);
             $.ajax({
                 url : URI.GET_PRODUCTOS,
                 method : 'GET',

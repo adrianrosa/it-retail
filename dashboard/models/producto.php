@@ -23,7 +23,7 @@ class Producto
     
     public function obtenerProducto($idProducto){
         $id = (int) $this->conexion->real_escape_string($idProducto);
-        $query = "SELECT IdProducto, NombreProducto, DescripcionCortaProducto, DescripcionLargaProducto, PrecioProducto, CantidadStockProducto, CategoriaProducto,  ProductoEsDestacado, UrlImagenProducto FROM Producto WHERE IdProducto =" . $idProducto;
+        $query = "SELECT * FROM Producto WHERE IdProducto =" . $idProducto;
         $result = $this->conexion->query($query);
         return $result->fetch_assoc();
     }
@@ -39,8 +39,8 @@ class Producto
             $esDestacado = 1;
         else
             $esDestacado = 0;
-        $urlImagen = $this->conexion->real_escape_string($producto['UrlImagenProducto']);
-        $query = "INSERT INTO Producto (IdProducto, NombreProducto, DescripcionCortaProducto, DescripcionLargaProducto, PrecioProducto, CantidadStockProducto, Categoria, EsDestacado, UrlImagenProducto) VALUES( NULL, '".$nombre."', '".$descripcionCorta."', '".$descripcionLarga."', ".$precio.", ".$cantidad.", ".$categoria.", ".$esDestacado.", '".$urlImagen."');";
+        $imagen = (int) $this->conexion->real_escape_string($producto['IdImagen']);
+        $query = "INSERT INTO Producto VALUES( DEFAULT, '$nombre', '$descripcionCorta', '$descripcionLarga', $precio, $cantidad, $categoria, $esDestacado, $imagen);";
         if( $this->conexion->query($query) ){
             $producto['IdProducto'] = $this->conexion->insert_id;
             return $producto;

@@ -86,18 +86,42 @@
                     <input type="checkbox" name="esDestacado" id="esDestacado"  />
                   </div>
                 </div>
+                <?php
+                    if(!empty($producto)){ ?>
+                        
+                        <div class="form-group has-feedback">
+                          <label class="control-label col-sm-3" for="urlImagen">Imagen</label>
+                          <div class="col-sm-9 campo">
+                              <img src="<?= $producto['UrlImagenProducto'] ?>" />
+                            <input id="urlImagen" name="urlImagen" type="file" class="form-control" value="" /><br />
+                           <!--<button id="subir-img" class="btn btn-default">Subir imagen</button> &nbsp; <label id="msj-subida" class="hide" style="color: red;">Se subió la imagen correctamente</label>-->
+                              <input type="text" name="idImagen" id="id-subida" class="hide" />
+                          </div> 
+
+                        </div>
+                
+                    <?php } else {?>
+                    
+                         <div class="form-group has-feedback">
+                          <label class="control-label col-sm-3" for="urlImagen">Imagen</label>
+                          <div class="col-sm-9 campo">
+                            <input id="urlImagen" name="urlImagen" type="file" class="form-control" value="<?= !empty($producto) ? $producto["UrlImagenProducto"] : ""; ?>" /><br />
+                           <!--<button id="subir-img" class="btn btn-default">Subir imagen</button> &nbsp; -->
+                              <input type="text" name="idImagen" id="id-subida" class="hide" />
+                          </div> 
+
+                        </div>
+        
+                    <?php
+                        }
+                    ?>
                 <!--<div class="form-group has-feedback">
                   <label class="control-label col-sm-3" for="urlImagen">Imagen</label>
-                  <div class="col-sm-9">
-                    <input id="urlImagen" type="file" class="file" value="<?= !empty($producto) ? $producto["UrlImagenProducto"] : ""; ?>" />
-                  </div>
-                </div>-->
-                <div class="form-group has-feedback">
-                  <label class="control-label col-sm-3" for="urlImagen">Imagen</label>
                   <div class="col-sm-9 campo">
-                    <input id="urlImagen" name="urlImagen" type="file" class="form-control" value="<?= !empty($producto) ? $producto["UrlImagenProducto"] : ""; ?>" />
-                  </div>
-                </div>
+                    <input id="urlImagen" name="urlImagen" type="file" class="form-control" value="<?= !empty($producto) ? $producto["UrlImagenProducto"] : ""; ?>" /><br />
+                   <button id="subir-img" class="btn btn-default">Subir imagen</button> &nbsp; <label id="msj-subida" class="hide" style="color: red;">Se subió la imagen correctamente</label>
+                  </div> 
+                </div>-->           
                 <input type="submit" class="btn btn-primary btn-accion" name="action" value="<?= $action; ?>"/>
             </form>
         </div>

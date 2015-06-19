@@ -24,7 +24,41 @@
         }
     }
 
+    function guardarArchivo($file, $imgId){
+        $uploaddir = "../files/";
+        $imgDir = $uploaddir . $imgId;
+        if(mkdir($imgDir, 0777, true)){
+            return move_uploaded_file($file['tmp_name'], $imgDir . "/" . $file['name']);
+        }
+        return false;
+    }
+    
+    function nuevaImg($request){
+        require("../models/imagen.php");
+        $imgFile = $_FILES[0];
+        $imgData = new Imagen();
+        $result = $imgData->crearImagen(array(
+            "path" => "files/",
+            "file_name" => $imgFile['name']
+        ));
+        if( guardarArchivo($imgFile, $result['id']) ){
+            //$img = $result['id'];
+             sendResponse(array(
+                "error" => false,
+                "mensaje" => "Imagen guardada",
+                "id" => $result['id']
+            ));
+        }else{
+            //TODO: eliminar de la base la imagen creada para consistencia con fileSistem
+            sendResponse(array(
+                "error" => false,
+                "mensaje" => "Error al guardar imagen en disco"
+            ));
+        }
+    }
+
    function nueva($request){
+     
         require("../models/producto.php");
         $p = new Producto();
         $producto = array();
@@ -36,8 +70,7 @@
         $producto["CategoriaProducto"] = $_POST["categoria"];
         $esDestacado = isset($_REQUEST["esDestacado"]) ? true : false; 
         $producto["EsDestacado"] = $esDestacado;
-        $img = $_FILES["urlImagen"];
-        $producto["UrlImagenProducto"] = img['name'];
+        $producto["IdImagen"] = $_POST["idImagen"];
         if($nuevo = $p->crearProducto($producto)){
             sendResponse(array(
                 "error" => false,
@@ -99,6 +132,9 @@
     switch($action){
         case "guardar":
             nueva($request);
+        break;
+        case "subir":
+            nuevaImg($request);
         break;
         case "actualizar":
             actualizar($request);

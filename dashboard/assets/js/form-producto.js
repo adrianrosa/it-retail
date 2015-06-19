@@ -1,8 +1,10 @@
 (function($ , Handlebars){
     
+    var files;
     var URI = {
         GUARDAR : "actions/api-productos.php?action=guardar",
-        ACTUALIZAR :  "actions/api-productos.php?action=actualizar"
+        ACTUALIZAR :  "actions/api-productos.php?action=actualizar",
+        UPLOAD : "actions/api-productos.php?action=subir"
     };
     
     var validarFormData = function(){
@@ -86,18 +88,54 @@
         $("#categoria").siblings(".help-block").html("");  
     };
     
+    $('input[type=file]').on('change', prepareUpload);
+    //$('#subir-img').on('click', uploadFiles);
+    
+    function prepareUpload(event){
+        files = event.target.files;
+        console.log(files);
+    };
 
-    $("#form-producto").on("submit", function(){
+    $("#form-producto").on("submit", function(event){
         cleanFormError();
         if(validarFormData()){
+            uploadFiles(event);
+            
+        }
+        //impedir que se ejecute el submit nativo del navegador (ya que los datos los estamos enviando por ajax)
+        return false;
+    });
+    
+    
+    function uploadFiles(event){
+        event.preventDefault();
+
+        var data = new FormData();
+        
+        $.each(files, function(key, value){ // key - value: vienen desde el file
+            data.append(key, value);
+        });
+
+        $.ajax({
+            url: URI.UPLOAD,
+            type: 'POST',
+            data: data,
+            cache: false,
+            dataType: 'json',
+            processData: false,
+            contentType: false
+        }).done(function(response){
+            console.log(response);           
+            $('#id-subida').val(response.id);
             //Si hay un input oculto con el id, estamos editando, de lo contrario, creando uno nuevo
             var idInput = $("input[name=id]");
             var actionUrl = idInput.length == 0 ? URI.GUARDAR : URI.ACTUALIZAR;
+            var datos = $("#form-producto").serialize();
             $.ajax({
                 url : actionUrl,
                 method : 'POST',
                 dataType : 'json',
-                data : $("#form-producto").serialize() //obtengo los datos del formulario
+                data :  datos//obtengo los datos del formulario
             })
             .done(function(res){
                 //si la categoria se guardo/actualizo, cambio a la pantalla listado
@@ -111,9 +149,8 @@
                 //si fallo la peticion mustro mensaje de error
                 alert("error");
             });
-        }
-        //impedir que se ejecute el submit nativo del navegador (ya que los datos los estamos enviando por ajax)
-        return false;
-    });
+            //loadImg();
+        });
+    };
         
 })(jQuery , Handlebars);
