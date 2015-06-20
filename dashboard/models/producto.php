@@ -23,7 +23,7 @@ class Producto
     
     public function obtenerProducto($idProducto){
         $id = (int) $this->conexion->real_escape_string($idProducto);
-        $query = "SELECT * FROM Producto WHERE IdProducto =" . $idProducto;
+        $query = "SELECT P.*, I.* FROM Producto as P, Imagen as I WHERE P.Imagen = I.IdImagen AND IdProducto =" . $idProducto;
         $result = $this->conexion->query($query);
         return $result->fetch_assoc();
     }

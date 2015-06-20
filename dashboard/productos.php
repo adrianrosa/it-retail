@@ -37,7 +37,8 @@
         </div>
       </div>
     </div>
-    <?php require('partials/footer.php') ?>
+    <?php require('partials/footer.php') ?> 
     <script src="./assets/js/productos.js"></script>
+    <?php require("partials/confirm-modal.php"); ?>
   </body>
 </html>

@@ -1,5 +1,5 @@
 {{#each productos}}
-<tr>
+<tr id="producto-{{IdProducto}}">
     <td class="IdProducto">{{IdProducto}}</td>
     <td class="NombreProducto">{{NombreProducto}}</td>
     <td class="DescripcionCortaProducto">{{DescripcionCortaProducto}}</td>
@@ -9,9 +9,9 @@
     <td class="CantidadStockProducto">{{CantidadStockProducto}}</td>
     <td class="EsDestacado">{{EsDestacado}}</td>
     <td>
-        <button class="editar">Editar</button>&nbsp;
-        <button>Eliminar</button>
+        <a class="btn btn-default editar" href="form-producto.php?IdProducto={{IdProducto}}">Editar</a>&nbsp;
+        <a class="btn btn-default eliminar">Eliminar</a>
     </td>
-    <td class="UrlImagenProducto hide">{{UrlImagenProducto}}</td>
+    <td class="UrlImagenProducto hide">{{Imagen}}</td>
 </tr>
 {{/each}}
