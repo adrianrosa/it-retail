@@ -10,7 +10,7 @@ class Producto
     }
     
     public function obtenerTodosLosProductos(){
-        $query = "SELECT P.*, C.NombreCategoria ,I.* FROM Producto as P, Categoria as C, Imagen as I WHERE P.CategoriaProducto = C.IdCategoria AND P.Imagen = I.IdImagen;";
+        $query = "SELECT P.*, C.NombreCategoria FROM Producto as P, Categoria as C WHERE P.CategoriaProducto = C.IdCategoria;";
         $productos = array();
         if( $result = $this->conexion->query($query) ){
             while( $fila = $result->fetch_assoc() ){
