@@ -1,5 +1,5 @@
 <?php 
-require('conexion.php');
+include_once('conexion.php');
 
 class Categoria
 {

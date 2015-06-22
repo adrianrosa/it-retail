@@ -14,7 +14,7 @@
         var descripcionLarga = $("#descripcionLarga").val();
         var precio = $("#precio").val();
         var stock = $("#stock").val();
-        var categoria = $("#categoria").val();
+        //var categoria = $("#categoria").val();
         
         if(nombre.length == 0){
             $("#nombre").closest(".form-group").addClass("has-error");
@@ -51,12 +51,12 @@
             valid = false;
         }
         
-        if(categoria.length == 0){
+        /*if(categoria.length == 0){
             $("#categoria").closest(".form-group").addClass("has-error");
             $("#categoria").siblings(".glyphicon-remove").removeClass("hide");
             $("#categoria").siblings(".help-block").html("Completar este campo");
             valid = false;
-        }
+        }*/
        
         return valid;
     };

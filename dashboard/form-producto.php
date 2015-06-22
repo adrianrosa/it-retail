@@ -1,6 +1,7 @@
 <?php 
     include('seguridad.php');
     require("models/producto.php");
+    require("models/categoria.php");
     $id = isset($_GET["IdProducto"]) ? $_GET["IdProducto"] : null;
     $seccion = "productos";
     $action = empty($id) ? "guardar" : "actualizar";
@@ -11,6 +12,8 @@
         $producto = $p->obtenerProducto($id);
         $tituloSeccion = "Editar producto: " . $producto["NombreProducto"];
     }
+    $c = new Categoria();
+    $categorias = $c->obtenerTodasLasCategorias();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +78,14 @@
                 <div class="form-group has-feedback">
                   <label class="control-label col-sm-3" for="nombre">Categoría</label>
                   <div class="col-sm-9 campo">
-                      <input name="categoria" type="text" class="form-control" id="categoria" value="<?= !empty($producto) ? $producto["CategoriaProducto"] : ""?>">
+                      <!--<input name="categoria" type="text" class="form-control" id="categoria" value="<?= !empty($producto) ? $producto["CategoriaProducto"] : ""?>"> -->
+                      <?php 
+                        echo "<select class='form-control' name='categoria'>";
+                        foreach($categorias as $categoria){
+                            echo "<option value='" . $categoria['IdCategoria'] . "'>" . $categoria['NombreCategoria'] . "</option>";
+                        }             
+                        echo "</select>";
+                      ?>
                       <span class="hide glyphicon glyphicon-remove form-control-feedback"></span>
                       <span class="help-block"></span>
                   </div>

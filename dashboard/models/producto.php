@@ -1,5 +1,5 @@
 <?php 
-require('conexion.php');
+include_once('conexion.php');
 
 class Producto
 {
@@ -10,7 +10,7 @@ class Producto
     }
     
     public function obtenerTodosLosProductos(){
-        $query = "SELECT * FROM Producto;";
+        $query = "SELECT P.*, C.NombreCategoria ,I.* FROM Producto as P, Categoria as C, Imagen as I WHERE P.CategoriaProducto = C.IdCategoria AND P.Imagen = I.IdImagen;";
         $productos = array();
         if( $result = $this->conexion->query($query) ){
             while( $fila = $result->fetch_assoc() ){
