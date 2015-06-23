@@ -119,9 +119,9 @@
         if(validarFormData()){
             var idInput = $("input[name=id]");
             if(idInput.length == 0)
-                uploadFiles(event);
+                uploadFileAndCreate(event);
             else
-                update(event);
+                uploadFileAndUpdate(event);
             
         }
         //impedir que se ejecute el submit nativo del navegador (ya que los datos los estamos enviando por ajax)
@@ -129,7 +129,7 @@
     });
     
     
-    function uploadFiles(event){
+    function uploadFileAndCreate(event){
         event.preventDefault();
 
         var data = new FormData();
@@ -149,37 +149,64 @@
         }).done(function(response){
             console.log(response);           
             $('#id-subida').val(response.id);
-            var idInput = $("input[name=id]");
-            //var actionUrl = idInput.length == 0 ? URI.GUARDAR : URI.ACTUALIZAR;
-            var actionUrl = URI.GUARDAR;
-            var datos = $("#form-producto").serialize();
-            $.ajax({
-                url : actionUrl,
-                method : 'POST',
-                dataType : 'json',
-                data :  datos//obtengo los datos del formulario
-            })
-            .done(function(res){
-                //si la categoria se guardo/actualizo, cambio a la pantalla listado
-                if(!res.error){
-                    window.location = "productos.php";
-                }else{
-                    alert(res.mensaje);
-                }
-            })
-            .fail(function(){
-                //si fallo la peticion mustro mensaje de error
-                alert("error");
-            });
-            //loadImg();
+            createProduct();
         });
     };
     
-    function update(event){
-        event.preventDefault();
+    function uploadFileAndUpdate(event){
+        if(changeImage){
+            event.preventDefault();
+
+            var data = new FormData();
+
+            $.each(files, function(key, value){ // key - value: vienen desde el file
+                data.append(key, value);
+            });
+
+            $.ajax({
+                url: URI.UPLOAD,
+                type: 'POST',
+                data: data,
+                cache: false,
+                dataType: 'json',
+                processData: false,
+                contentType: false
+            }).done(function(response){
+                console.log(response);           
+                //$('#id-subida').val(response.id);
+                updateProduct(URI.ACTUALIZAR + "&idImagen=" + response.id);
+            });
+        } else {
+            updateProduct(URI.ACTUALIZAR);
+        }
+    }
+    
+    function createProduct(){
+        var idInput = $("input[name=id]");
+        var actionUrl = URI.GUARDAR;
         var datos = $("#form-producto").serialize();
         $.ajax({
-            url : URI.ACTUALIZAR + "&id=" +$("input[name=id]").val(),
+            url : actionUrl,
+            method : 'POST',
+            dataType : 'json',
+            data :  datos
+        })
+        .done(function(res){
+            if(!res.error){
+                window.location = "productos.php";
+            }else{
+                alert(res.mensaje);
+            }
+        })
+        .fail(function(){
+            alert("error");
+        });
+    }
+    
+    function updateProduct(url){
+        var datos = $("#form-producto").serialize();
+        $.ajax({
+            url : url,
             method : 'POST',
             dataType : 'json',
             data :  datos//obtengo los datos del formulario
@@ -197,5 +224,6 @@
             alert("error " + res.error);
         });
     }
-        
+    
+            
 })(jQuery , Handlebars);
