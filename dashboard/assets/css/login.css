@@ -4,7 +4,7 @@
 
 .form-login legend{
 	font-size: 30px;
-	color: #449d44;
+	color: #337ab7;
 }
 
 .btn-entrar{
@@ -14,21 +14,21 @@
 .titulo-login{
 	text-align:center;
 	color: #fff;
-	background-color: #449d44;
+	background-color: #337ab7;
 	border-radius: 5px;
 	padding: 5px;
 	cursor: pointer;
 	font-size: 27px;
 }
 
-.btn-iniciar{
+/*.btn-iniciar{
 	background-color: #449d44;
 	border: #449d44;
 }
 
 .btn-iniciar:hover{
 	background-color: #449d99;
-}
+}*/
 
 #label-error{
     color: red;

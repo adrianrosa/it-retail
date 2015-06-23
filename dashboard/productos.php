@@ -6,9 +6,9 @@
   </head>
   <body>
     <?php require('partials/menu-principal.php') ?>
-    <div class="container-fluid">
+    <div class="container-fluid" id="principal">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-3 col-md-2 sidebar menu-lateral">
           <?php require('partials/menu-lateral.php') ?>
         </div>
         <div id="main-content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -21,7 +21,7 @@
                   <th>#</th>
                   <th>Nombre</th>
                   <th>Descripción Corta</th>
-                  <th>Descripción Larga</th>
+                  <th class="hide">Descripción Larga</th>
                   <th>Precio</th>
                   <th>Categoría</th>
                   <th>Cantidad en stock</th>

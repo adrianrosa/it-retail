@@ -23,10 +23,10 @@
     <?php require('partials/menu-principal.php') ?>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-3 col-md-2 sidebar menu-lateral">
           <?php require('partials/menu-lateral.php') ?>
         </div>
-        <div id="main-content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div id="principal" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1><?= $tituloSeccion; ?></h1>
             <hr/>
             <form class="form-horizontal" id="form-categoria">

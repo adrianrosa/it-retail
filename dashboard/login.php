@@ -3,7 +3,7 @@
 	<head>
             <title>Iniciar sesión - Dashboard</title>
             <?php require('partials/header.php'); ?>		
-            <link rel="stylesheet" href="./assets/css/dashboard/login.css">			
+            <link rel="stylesheet" href="./assets/css/login.css">			
 	</head>
 	<body>
 	<div class="container">

@@ -105,6 +105,18 @@
 
 /* Estilos propios */
 
+.row .menu-lateral{
+    z-index: 900;
+    top: 0px;
+    padding-top: 30px;
+}
+
+.titulo-menu{
+    color: #337ab7;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
 .tabla-general{
 	text-align: center;
 }
