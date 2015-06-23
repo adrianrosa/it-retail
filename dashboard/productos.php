@@ -25,7 +25,7 @@
                   <th>Precio</th>
                   <th>Categoría</th>
                   <th>Cantidad en stock</th>
-                  <th>Es destacado</th>
+                  <th class="hide">Es destacado</th>
                   <th>Acciones</th>
                   <th class="hide">Url</th>
                 </tr>

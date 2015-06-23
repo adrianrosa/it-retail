@@ -56,9 +56,16 @@ class Producto
         $precio = (float) $this->conexion->real_escape_string($producto['PrecioProducto']);
         $cantidad = (int) $this->conexion->real_escape_string($producto['CantidadStockProducto']);
         $categoria = (int) $this->conexion->real_escape_string($producto['CategoriaProducto']);
-        $esDestacado = (boolean) $this->conexion->real_escape_string($producto['ProductoEsDestacado']);
-        $urlImagen = (boolean) $this->conexion->real_escape_string($producto['UrlImagenProducto']);
-        $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", ProductoEsDestacado = ".$esDestacado.", UrlImagenProducto = '".$urlImagen."'  WHERE IdProducto = ".id;
+        if($producto['EsDestacado'])
+            $esDestacado = 1;
+        else
+            $esDestacado = 0;
+        /*if( $producto['IdImagen'] != null){
+            $imagen = (int) $this->conexion->real_escape_string($producto['IdImagen']);
+            $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", ProductoEsDestacado = ".$esDestacado.", UrlImagenProducto = '".$imagen."'  WHERE IdProducto = ".id;
+        }
+        else*/
+            $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", EsDestacado = ".$esDestacado."  WHERE IdProducto = ".$id;
         return $this->conexion->query($query);
     }
     

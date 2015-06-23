@@ -6,6 +6,7 @@
         ACTUALIZAR :  "actions/api-productos.php?action=actualizar",
         UPLOAD : "actions/api-productos.php?action=subir"
     };
+    var changeImage = false;
     
     var validarFormData = function(){
         var valid = true;
@@ -14,7 +15,7 @@
         var descripcionLarga = $("#descripcionLarga").val();
         var precio = $("#precio").val();
         var stock = $("#stock").val();
-        //var categoria = $("#categoria").val();
+        //var imagen = $("#urlImagen").val();
         
         if(nombre.length == 0){
             $("#nombre").closest(".form-group").addClass("has-error");
@@ -51,10 +52,10 @@
             valid = false;
         }
         
-        /*if(categoria.length == 0){
-            $("#categoria").closest(".form-group").addClass("has-error");
-            $("#categoria").siblings(".glyphicon-remove").removeClass("hide");
-            $("#categoria").siblings(".help-block").html("Completar este campo");
+        /*if(imagen.length == 0){
+            $("#urlImagen").closest(".form-group").addClass("has-error");
+            $("#urlImagen").siblings(".glyphicon-remove").removeClass("hide");
+            $("#urlImagen").siblings(".help-block").html("Completar este campo");
             valid = false;
         }*/
        
@@ -85,21 +86,42 @@
         //
         $("#categoria").closest(".form-group").removeClass("has-error");
         $("#categoria").siblings(".glyphicon-remove").addClass("hide");
-        $("#categoria").siblings(".help-block").html("");  
+        $("#categoria").siblings(".help-block").html(""); 
+        //
+        /*$("#urlImagen").closest(".form-group").removeClass("has-error");
+        $("#urlImagen").siblings(".glyphicon-remove").addClass("hide");
+        $("#urlImagen").siblings(".help-block").html("");  */
     };
     
     $('input[type=file]').on('change', prepareUpload);
+    
+    $(document).ready(function(){
+        var cat = $('#categoria-val').val();
+        var index = 0;
+        $('#categoria option').each(function(){
+            if( $(this).attr('value') == cat ){
+                $(this).prop("selected", true);
+                return false;
+            }
+        });
+    });
+    
     //$('#subir-img').on('click', uploadFiles);
     
     function prepareUpload(event){
         files = event.target.files;
         console.log(files);
+        changeImage = true;
     };
 
     $("#form-producto").on("submit", function(event){
         cleanFormError();
         if(validarFormData()){
-            uploadFiles(event);
+            var idInput = $("input[name=id]");
+            if(idInput.length == 0)
+                uploadFiles(event);
+            else
+                update(event);
             
         }
         //impedir que se ejecute el submit nativo del navegador (ya que los datos los estamos enviando por ajax)
@@ -127,9 +149,9 @@
         }).done(function(response){
             console.log(response);           
             $('#id-subida').val(response.id);
-            //Si hay un input oculto con el id, estamos editando, de lo contrario, creando uno nuevo
             var idInput = $("input[name=id]");
-            var actionUrl = idInput.length == 0 ? URI.GUARDAR : URI.ACTUALIZAR;
+            //var actionUrl = idInput.length == 0 ? URI.GUARDAR : URI.ACTUALIZAR;
+            var actionUrl = URI.GUARDAR;
             var datos = $("#form-producto").serialize();
             $.ajax({
                 url : actionUrl,
@@ -152,5 +174,28 @@
             //loadImg();
         });
     };
+    
+    function update(event){
+        event.preventDefault();
+        var datos = $("#form-producto").serialize();
+        $.ajax({
+            url : URI.ACTUALIZAR + "&id=" +$("input[name=id]").val(),
+            method : 'POST',
+            dataType : 'json',
+            data :  datos//obtengo los datos del formulario
+        })
+        .done(function(res){
+            //si la categoria se guardo/actualizo, cambio a la pantalla listado
+            if(!res.error){
+                window.location = "productos.php";
+            }else{
+                alert(res.mensaje);
+            }
+        })
+        .fail(function(res){
+            //si fallo la peticion mustro mensaje de error
+            alert("error " + res.error);
+        });
+    }
         
 })(jQuery , Handlebars);

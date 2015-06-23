@@ -33,7 +33,7 @@
             <hr/>
             <form class="form-horizontal" id="form-producto">
                 <?php if($id): ?>
-                    <input type="hidden" name="id" value="<?= $id; ?>"/>                      
+                    <input type="text" class="hide" name="id" value="<?= $id; ?>"/>   
                 <?php endif; ?>          
                 <div class="form-group has-feedback">
                   <label class="control-label col-sm-3" for="nombre">Nombre</label>
@@ -78,9 +78,9 @@
                 <div class="form-group has-feedback">
                   <label class="control-label col-sm-3" for="nombre">Categoría</label>
                   <div class="col-sm-9 campo">
-                      <!--<input name="categoria" type="text" class="form-control" id="categoria" value="<?= !empty($producto) ? $producto["CategoriaProducto"] : ""?>"> -->
+                      <input id="categoria-val" type="text" class="hide" value="<?= !empty($producto) ? $producto["CategoriaProducto"] : ""?>">
                       <?php 
-                        echo "<select class='form-control' name='categoria'>";
+                        echo "<select id='categoria' class='form-control' name='categoria'>";
                         foreach($categorias as $categoria){
                             echo "<option value='" . $categoria['IdCategoria'] . "'>" . $categoria['NombreCategoria'] . "</option>";
                         }             
@@ -93,7 +93,7 @@
                 <div class="form-group has-feedback">
                   <label class="control-label col-sm-3" for="orden">Es destacado</label>
                   <div class="col-sm-9">
-                    <input type="checkbox" name="esDestacado" id="esDestacado"  />
+                    <input type="checkbox" name="esDestacado" id="esDestacado" <?php if(!empty($producto)){ if($producto["EsDestacado"]==1) echo "checked='checked'"; }  ?>  />
                   </div>
                 </div>
                 <?php if(!empty($producto)){ ?>                                    
@@ -101,7 +101,7 @@
                           <label class="control-label col-sm-3" for="urlImagen">Imagen</label>
                           <div class="col-sm-9 campo">
                               <img src="<?= $producto['Path'] . $producto['IdImagen'] . '/' . $producto['FileName'] ?>" width="250" height="250" />
-                              <input id="urlImagen" name="urlImagen" type="file" class="form-control" value="" /><br />
+                              <input name="urlImagen" type="file" class="form-control" value="" /><br />
                               <input type="text" name="idImagen" id="id-subida" class="hide" />
                           </div> 
 
@@ -112,6 +112,8 @@
                           <div class="col-sm-9 campo">
                               <input id="urlImagen" name="urlImagen" type="file" class="form-control" value="" /><br />
                               <input type="text" name="idImagen" id="id-subida" class="hide" />
+                              <span class="hide glyphicon glyphicon-remove form-control-feedback"></span>
+                              <span class="help-block"></span>
                           </div> 
                         </div>        
                     <?php  } ?>               

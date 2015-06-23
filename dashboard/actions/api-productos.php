@@ -96,8 +96,9 @@
         $producto["CantidadStockProducto"] = $request->stock;
         $producto["PrecioProducto"] = $request->precio;
         $producto["CategoriaProducto"] = $request->categoria;
-        $producto["EsDestacado"] = $request->esDestacado;
-        $producto["UrlImagenProducto"] = $request->urlImagen;
+        $esDestacado = isset($_REQUEST["esDestacado"]) ? true : false; 
+        $producto["EsDestacado"] = $esDestacado;
+        //$producto["IdImagen"] = ($_POST["idImagen"]=="" || $_POST["idImagen"] ==null) ? null : $request->idImagen;
         if($p->actualizarProducto($producto)){
             sendResponse(array(
                 "error" => false,
