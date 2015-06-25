@@ -85,7 +85,7 @@
         }
     }
     
-    function actualizar($request){
+    function actualizar($request, $idImagen){
         require("../models/producto.php");
         $p = new Producto();
         $producto = array();
@@ -98,7 +98,9 @@
         $producto["CategoriaProducto"] = $request->categoria;
         $esDestacado = isset($_REQUEST["esDestacado"]) ? true : false; 
         $producto["EsDestacado"] = $esDestacado;
-        //$producto["IdImagen"] = ($_POST["idImagen"]=="" || $_POST["idImagen"] ==null) ? null : $request->idImagen;
+        if($idImagen != -1){
+            $producto["IdImagen"] = $idImagen;
+        }
         if($p->actualizarProducto($producto)){
             sendResponse(array(
                 "error" => false,
@@ -130,6 +132,8 @@
 
     $request = new Request();
     $action =  $_GET['action']; //$request->action;
+    $idImagen = $request->idImagen;
+
     switch($action){
         case "guardar":
             nueva($request);
@@ -137,8 +141,10 @@
         case "subir":
             nuevaImg($request);
         break;
-        case "actualizar":
-            actualizar($request);
+        case "actualizar":  
+            if(isset($idImagen) && $idImagen !=null)
+                actualizar($request, $idImagen);
+            actualizar($request, -1);
         break;
         case "eliminar":
             eliminar($request);

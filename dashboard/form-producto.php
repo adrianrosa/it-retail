@@ -62,7 +62,7 @@
                 <div class="form-group has-feedback">
                   <label class="control-label col-sm-3" for="nombre">Precio</label>
                   <div class="col-sm-9 campo">
-                      <input name="precio" type="text" class="form-control" id="precio" value="<?= !empty($producto) ? $producto["PrecioProducto"] : ""?>">
+                      <input name="precio" type="text" maxlength="9" class="form-control" id="precio" value="<?= !empty($producto) ? $producto["PrecioProducto"] : ""?>">
                       <span class="hide glyphicon glyphicon-remove form-control-feedback"></span>
                       <span class="help-block"></span>
                   </div>
@@ -70,7 +70,7 @@
                 <div class="form-group has-feedback">
                   <label class="control-label col-sm-3" for="nombre">Cantidad en stock</label>
                   <div class="col-sm-9 campo">
-                      <input name="stock" type="text" class="form-control" id="stock" value="<?= !empty($producto) ? $producto["CantidadStockProducto"] : ""?>">
+                      <input name="stock" type="text" maxlength="4" class="form-control" id="stock" value="<?= !empty($producto) ? $producto["CantidadStockProducto"] : ""?>">
                       <span class="hide glyphicon glyphicon-remove form-control-feedback"></span>
                       <span class="help-block"></span>
                   </div>
