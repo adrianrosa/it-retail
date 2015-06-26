@@ -60,12 +60,14 @@ class Producto
             $esDestacado = 1;
         else
             $esDestacado = 0;
-        /*if( $producto['IdImagen'] != null){
+        $query = "";
+        if( !empty($producto["IdImagen"]) ){
             $imagen = (int) $this->conexion->real_escape_string($producto['IdImagen']);
-            $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", ProductoEsDestacado = ".$esDestacado.", UrlImagenProducto = '".$imagen."'  WHERE IdProducto = ".id;
+            $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", ProductoEsDestacado = ".$esDestacado.", Imagen = '".$imagen."'  WHERE IdProducto = ".$id;
         }
-        else*/
+        else{
             $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", EsDestacado = ".$esDestacado."  WHERE IdProducto = ".$id;
+        }
         return $this->conexion->query($query);
     }
     

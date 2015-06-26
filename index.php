@@ -111,8 +111,8 @@
                 
                 <div class="col-md-9 destacados">
                     <h2 class="titulo-destacados">Destacados</h2>
-                    <div class="row">
-                        <div class="col-md-6">
+                    <div class="row" id="listado-destacados">
+                        <!--<div class="col-md-6">
                             <div class="thumbnail producto">
                               <a href=""><img src="./assets/img/technics-q-c-250-160-1.jpg" alt="" class="img-thumbnail"></a>
                               <div class="caption descripcion">
@@ -159,7 +159,7 @@
 								<p><button class="glyphicon glyphicon-minus-sign menos"></button>&nbsp;<input type="text" value="1" maxlength="3" class="incremento" >&nbsp;<button class="glyphicon glyphicon-plus-sign mas"></button></p>
                                 <p><a href="#" class="btn btn-primary" role="button">Agregar al carrito</a></p>
                             </div>
-                        </div>
+                        </div> -->
                     </div> 
                 </div>
 				
@@ -167,11 +167,11 @@
                 <div class="col-md-3">
 					
 					<!-- CARRITO DE COMPRAS -->
-					<div class="carrito-compras">
+					<!--<div class="carrito-compras">
 						<h3 class="titulo-carrito">
 							<span class="glyphicon glyphicon-shopping-cart"></span>
 							<!--<a onclick="actualizarCarrito();">Carrito de compras</a> -->
-                            <a>Carrito de compras</a>
+                            <!--<a>Carrito de compras</a>
 						</h3>
 						<table class="carrito">
 							<thead>
@@ -182,7 +182,7 @@
 								</tr>
 							</thead>
 							<tbody>						
-								<!--<tr id="no-items">
+								<tr id="no-items">
 									<td>0 artíulos</td>
 								</tr>
 								<tr class="linea-carrito linea">							
@@ -200,9 +200,9 @@
 									<td></td>
 									<td id="importe-total"> $ 0.00</td> 
 								</tr>-->
-							</tbody>
+							<!--</tbody>
 						</table>
-					</div>
+					</div>-->
                 </div>
 				
             </div>

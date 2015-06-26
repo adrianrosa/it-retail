@@ -98,7 +98,7 @@
         $producto["CategoriaProducto"] = $request->categoria;
         $esDestacado = isset($_REQUEST["esDestacado"]) ? true : false; 
         $producto["EsDestacado"] = $esDestacado;
-        if($idImagen != -1){
+        if( !empty($idImagen) || $idImagen == 0 ){
             $producto["IdImagen"] = $idImagen;
         }
         if($p->actualizarProducto($producto)){
@@ -131,7 +131,7 @@
     }
 
     $request = new Request();
-    $action =  $_GET['action']; //$request->action;
+    $action =  $request->action;
     $idImagen = $request->idImagen;
 
     switch($action){
@@ -144,7 +144,7 @@
         case "actualizar":  
             if(isset($idImagen) && $idImagen !=null)
                 actualizar($request, $idImagen);
-            actualizar($request, -1);
+            actualizar($request, 0);
         break;
         case "eliminar":
             eliminar($request);
