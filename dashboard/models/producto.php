@@ -21,6 +21,30 @@ class Producto
         return $productos;
     }
     
+    public function obtenerTodosLosDestacados(){
+        $query = "SELECT P.*, C.NombreCategoria, I.* FROM Producto as P, Categoria as C, Imagen as I WHERE P.CategoriaProducto = C.IdCategoria AND P.Imagen = I.IdImagen AND EsDestacado = 1;";
+        $productos = array();
+        if( $result = $this->conexion->query($query) ){
+            while( $fila = $result->fetch_assoc() ){
+                $productos[] = $fila;
+            }
+            $result->free();
+        }
+        return $productos;
+    }
+    
+    public function obtenerProductosPorCategoria($idCategoria){
+        $query = "SELECT P.*, C.NombreCategoria, I.* FROM Producto as P, Categoria as C, Imagen as I WHERE P.CategoriaProducto = C.IdCategoria AND P.Imagen = I.IdImagen AND CategoriaProducto = $idCategoria ;";
+        $productos = array();
+        if( $result = $this->conexion->query($query) ){
+            while( $fila = $result->fetch_assoc() ){
+                $productos[] = $fila;
+            }
+            $result->free();
+        }
+        return $productos;
+    }
+    
     public function obtenerProducto($idProducto){
         $id = (int) $this->conexion->real_escape_string($idProducto);
         $query = "SELECT P.*, I.* FROM Producto as P, Imagen as I WHERE P.Imagen = I.IdImagen AND IdProducto =" . $idProducto;

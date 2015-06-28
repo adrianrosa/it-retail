@@ -1,12 +1,12 @@
 /* Botón incrementador de cantidad */
-$('.mas').click(function(){
+$('body').on('click', '.mas',function(){
 	var elem = $(this).siblings('.incremento')[0];
 	var numero = elem.value;
 	elem.value = parseInt(numero) + 1;
 });
 
 /* Botón decrementador de cantidad */
-$('.menos').click(function(){
+$('body').on('click', '.menos', function(){
 	var elem = $(this).siblings('.incremento')[0];
 	var numero = elem.value;
 	if(numero > 1)

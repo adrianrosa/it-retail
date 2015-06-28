@@ -110,7 +110,7 @@
             <div class="row">
                 
                 <div class="col-md-9 destacados">
-                    <h2 class="titulo-destacados">Destacados</h2>
+                    <h2 class="titulo-destacados">Productos Destacados</h2>
                     <div class="row" id="listado-destacados">
                         <!--<div class="col-md-6">
                             <div class="thumbnail producto">
@@ -215,8 +215,10 @@
             <?php require('partials/footer.php'); ?>
 
         </div>  
-
-		<script src="./assets/js/producto.js" defer></script>
+        
+        <script src="./assets/js/index.js" defer></script>
+        
+		<script src="./assets/js/utils.js" defer></script>
 		
 		<script src="./assets/js/carrito-compras.js" defer></script>
 

@@ -34,3 +34,7 @@
 .producto div.descripcion{
     text-align: center;
 }
+
+.imagen{
+    width: 210px;
+}
