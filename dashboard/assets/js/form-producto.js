@@ -15,7 +15,7 @@
         var descripcionLarga = $("#descripcionLarga").val();
         var precio = $("#precio").val();
         var stock = $("#stock").val();
-        //var imagen = $("#urlImagen").val();
+        var imagen = $("#urlImagen");
         
         if(nombre.length == 0){
             $("#nombre").closest(".form-group").addClass("has-error");
@@ -52,12 +52,14 @@
             valid = false;
         }
         
-        /*if(imagen.length == 0){
-            $("#urlImagen").closest(".form-group").addClass("has-error");
-            $("#urlImagen").siblings(".glyphicon-remove").removeClass("hide");
-            $("#urlImagen").siblings(".help-block").html("Completar este campo");
-            valid = false;
-        }*/
+        if(imagen.attr('esalta') == "1"){
+		if(imagen.val().length == 0){
+		    $("#urlImagen").closest(".form-group").addClass("has-error");
+		    $("#urlImagen").siblings(".glyphicon-remove").removeClass("hide");
+		    $("#urlImagen").siblings(".help-block").html("Completar este campo");
+		    valid = false;
+		}
+	}
        
         return valid;
     };
@@ -88,9 +90,9 @@
         $("#categoria").siblings(".glyphicon-remove").addClass("hide");
         $("#categoria").siblings(".help-block").html(""); 
         //
-        /*$("#urlImagen").closest(".form-group").removeClass("has-error");
+        $("#urlImagen").closest(".form-group").removeClass("has-error");
         $("#urlImagen").siblings(".glyphicon-remove").addClass("hide");
-        $("#urlImagen").siblings(".help-block").html("");  */
+        $("#urlImagen").siblings(".help-block").html("");  
     };
     
     $('input[type=file]').on('change', prepareUpload);
@@ -174,7 +176,7 @@
             }).done(function(response){
                 console.log(response);           
                 //$('#id-subida').val(response.id);
-                updateProduct(URI.ACTUALIZAR + "&idImagen=" + response.id);
+                updateProduct(URI.ACTUALIZAR + "&idImg=" + response.id);
             });
         } else {
             updateProduct(URI.ACTUALIZAR);

@@ -35,6 +35,7 @@
     text-align: center;
 }
 
-.imagen{
+.producto .imagen{
     width: 210px;
+    height: 210px;
 }

@@ -74,6 +74,7 @@
                                 <div class='caption descripcion'> \
                                     <h3>" + producto.NombreProducto + "</h3> \
                                     <p>" + producto.DescripcionCortaProducto + "</p> \
+				    <p class='precio' price='" + producto.PrecioProducto + "'>$ " + producto.PrecioProducto + "</p> \
                                     <p><button class='glyphicon glyphicon-minus-sign menos'></button>&nbsp;<input type='text' value='1' maxlength='3' \ class='incremento' >&nbsp;<button class='glyphicon glyphicon-plus-sign mas'></button></p> \
                                     <p><a href='#' class='btn btn-primary' role='button'>Agregar al carrito</a></p> \
                                 </div> \

@@ -62,15 +62,15 @@
         require("../models/producto.php");
         $p = new Producto();
         $producto = array();
-        $producto["NombreProducto"] = $_POST["nombre"];
-        $producto["DescripcionCortaProducto"] = $_POST["descripcionCorta"];
-        $producto["DescripcionLargaProducto"] = $_POST["descripcionLarga"];
-        $producto["CantidadStockProducto"] = $_POST["stock"];
-        $producto["PrecioProducto"] = $_POST["precio"];
-        $producto["CategoriaProducto"] = $_POST["categoria"];
-        $esDestacado = isset($_REQUEST["esDestacado"]) ? true : false; 
+        $producto["NombreProducto"] = $request->nombre;
+        $producto["DescripcionCortaProducto"] = $request->descripcionCorta;
+        $producto["DescripcionLargaProducto"] = $request->descripcionLarga;
+        $producto["CantidadStockProducto"] = $request->stock;
+        $producto["PrecioProducto"] = $request->precio;
+        $producto["CategoriaProducto"] = $request->categoria;
+        $esDestacado = isset($request->esDestacado) ? true : false; 
         $producto["EsDestacado"] = $esDestacado;
-        $producto["IdImagen"] = $_POST["idImagen"];
+        $producto["IdImagen"] = $request->IdImagen;
         if($nuevo = $p->crearProducto($producto)){
             sendResponse(array(
                 "error" => false,
@@ -85,8 +85,8 @@
         }
     }
     
-    function actualizar($request, $idImagen){
-        require("../models/producto.php");
+    function actualizar($request, $idImg){
+        require_once("../models/producto.php");
         $p = new Producto();
         $producto = array();
         $producto["IdProducto"] = $request->id;
@@ -98,13 +98,16 @@
         $producto["CategoriaProducto"] = $request->categoria;
         $esDestacado = isset($_REQUEST["esDestacado"]) ? true : false; 
         $producto["EsDestacado"] = $esDestacado;
-        if( !empty($idImagen) || $idImagen == 0 ){
-            $producto["IdImagen"] = $idImagen;
-        }
+        if( !empty($idImg) ){
+            $producto["IdImagen"] = $idImg;
+        } else {
+	    $producto["IdImagen"] = null;
+	}
         if($p->actualizarProducto($producto)){
             sendResponse(array(
                 "error" => false,
-                "mensaje" => "Producto actualizado"
+                "mensaje" => "Producto actualizado",
+                "data" =>  $producto
             ));
         }else{
             sendResponse(array(
@@ -132,7 +135,7 @@
 
     $request = new Request();
     $action =  $request->action;
-    $idImagen = $request->idImagen;
+    $idImg = $request->idImg;
 
     switch($action){
         case "guardar":
@@ -142,9 +145,10 @@
             nuevaImg($request);
         break;
         case "actualizar":  
-            if(isset($idImagen) && $idImagen !=null)
-                actualizar($request, $idImagen);
-            actualizar($request, 0);
+            if(isset($idImg) && $idImg !=null)
+                actualizar($request, $idImg);
+	    else
+            	actualizar($request, 0);
         break;
         case "eliminar":
             eliminar($request);
