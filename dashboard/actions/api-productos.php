@@ -68,7 +68,7 @@
         $producto["CantidadStockProducto"] = $request->stock;
         $producto["PrecioProducto"] = $request->precio;
         $producto["CategoriaProducto"] = $request->categoria;
-        $esDestacado = isset($request->esDestacado) ? true : false; 
+        $esDestacado = isset($_REQUEST["esDestacado"]) ? true : false; 
         $producto["EsDestacado"] = $esDestacado;
         $producto["IdImagen"] = $request->IdImagen;
         if($nuevo = $p->crearProducto($producto)){

@@ -257,5 +257,20 @@
         tecla_final = String.fromCharCode(tecla);
         return patron.test(tecla_final);
     });
+
+    $("#urlImagen").on('change', function(){
+	 mostrarImagenPreview(this);
+    });
+   
+    function mostrarImagenPreview(input){
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+		reader.onload = function (e) {
+			$('#img').attr('src', e.target.result);
+			$('#img').removeClass('hide');
+		}
+		reader.readAsDataURL(input.files[0]);
+	}
+    }
             
 })(jQuery , Handlebars);

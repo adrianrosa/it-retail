@@ -100,8 +100,8 @@
                         <div class="form-group has-feedback">
                           <label class="control-label col-sm-3" for="urlImagen">Imagen</label>
                           <div class="col-sm-9 campo">
-                              <img src="<?= $producto['Path'] . $producto['IdImagen'] . '/' . $producto['FileName'] ?>" width="250" height="250" />
-                              <input name="urlImagen" type="file" class="form-control" value="" /><br />
+                              <img id="img" src="<?= $producto['Path'] . $producto['IdImagen'] . '/' . $producto['FileName'] ?>" width="250" height="250" />
+                              <input id="urlImagen" name="urlImagen" type="file" class="form-control" value="" /><br />
                               <input type="text" name="IdImagen" id="id-subida" class="hide" />
                           </div> 
 
@@ -111,6 +111,7 @@
                           <label class="control-label col-sm-3" for="urlImagen">Imagen</label>
                           <div class="col-sm-9 campo">
                               <input id="urlImagen" name="urlImagen" type="file" class="form-control" value="" esalta="1" /><br />
+				<img id="img" class="hide" src="" width="250" height="250" />
                               <input type="text" name="IdImagen" id="id-subida" class="hide" />
                               <span class="hide glyphicon glyphicon-remove form-control-feedback"></span>
                               <span class="help-block"></span>
