@@ -30,7 +30,7 @@
     };
     
     var deleteSlider = function(sliderID){
-        console.log("eliminando slider " + productoID);
+        console.log("eliminando slider " + sliderID);
         $.ajax({
             url : URI.DELETE_SLIDERS,
             method : 'POST',
@@ -63,7 +63,7 @@
 
     $('#tabla-sliders tbody').on("click", "a.eliminar", function(event){
         if(event.confirmado){
-            var id = $(this).closest("tr").find(".Slider").html();
+            var id = $(this).closest("tr").find(".IdSlider").html();
             deleteSlider(id);
         }
         modalConfirm(function(confirm){
@@ -76,6 +76,20 @@
         });
         return false;
     });
+    
+    $('#crear-slider').on('click',
+        function() {
+            var maximo = 1;
+            $('.OrdenImagen').each(function(){
+                var valor = parseInt($(this).html());
+                if( valor > maximo ){
+                    maximo = valor;
+                }
+            });
+            maximo++;
+            window.location ='form-slider.php?orden='+maximo;
+        }
+    );
     
 
     getSliders();

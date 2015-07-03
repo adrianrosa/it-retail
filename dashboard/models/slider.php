@@ -20,72 +20,44 @@ class Slider
         }
         return $sliders;
     }
-        
-    public function obtenerProductosPorCategoria($idCategoria){
-        $query = "SELECT P.*, C.NombreCategoria, I.* FROM Producto as P, Categoria as C, Imagen as I WHERE P.CategoriaProducto = C.IdCategoria AND P.Imagen = I.IdImagen AND CategoriaProducto = $idCategoria ;";
-        $productos = array();
-        if( $result = $this->conexion->query($query) ){
-            while( $fila = $result->fetch_assoc() ){
-                $productos[] = $fila;
-            }
-            $result->free();
-        }
-        return $productos;
-    }
     
-    public function obtenerProducto($idProducto){
-        $id = (int) $this->conexion->real_escape_string($idProducto);
-        $query = "SELECT P.*, I.* FROM Producto as P, Imagen as I WHERE P.Imagen = I.IdImagen AND IdProducto =" . $idProducto;
+    public function obtenerSlider($idSlider){
+        $id = (int) $this->conexion->real_escape_string($idSlider);
+        $query = "SELECT S.*, I.Path, I.FileName, I.IdImagen FROM Slider as S, Imagen as I WHERE S.Imagen = I.IdImagen AND IdSlider =" . $id;
         $result = $this->conexion->query($query);
         return $result->fetch_assoc();
     }
                                                         
-    public function crearProducto($producto){
-        $nombre = $this->conexion->real_escape_string($producto['NombreProducto']);
-        $descripcionCorta = $this->conexion->real_escape_string($producto['DescripcionCortaProducto']);
-        $descripcionLarga = $this->conexion->real_escape_string($producto['DescripcionLargaProducto']);
-        $precio = (float) $this->conexion->real_escape_string($producto['PrecioProducto']);
-        $cantidad = (int) $this->conexion->real_escape_string($producto['CantidadStockProducto']);
-        $categoria = (int) $this->conexion->real_escape_string($producto['CategoriaProducto']);
-        if($producto['EsDestacado'])
-            $esDestacado = 1;
-        else
-            $esDestacado = 0;
-        $imagen = (int) $this->conexion->real_escape_string($producto['IdImagen']);
-        $query = "INSERT INTO Producto VALUES( DEFAULT, '$nombre', '$descripcionCorta', '$descripcionLarga', $precio, $cantidad, $categoria, $esDestacado, $imagen);";
+    public function crearSlider($slider){
+        $titulo = $this->conexion->real_escape_string($slider['TituloImagen']);
+        $orden = $this->conexion->real_escape_string($slider['OrdenImagen']);
+        $imagen = (int) $this->conexion->real_escape_string($slider['IdImagen']);
+        $query = "INSERT INTO Slider VALUES( DEFAULT, '$titulo', $orden, $imagen);";
         if( $this->conexion->query($query) ){
-            $producto['IdProducto'] = $this->conexion->insert_id;
-            return $producto;
+            $slider['IdSlider'] = $this->conexion->insert_id;
+            return $slider;
         }
         return false;
     }
                                                         
-    public function actualizarProducto($producto){
-        $id = (int) $this->conexion->real_escape_string($producto['IdProducto']);
-        $nombre = $this->conexion->real_escape_string($producto['NombreProducto']);
-        $descripcionCorta = $this->conexion->real_escape_string($producto['DescripcionCortaProducto']);
-        $descripcionLarga = $this->conexion->real_escape_string($producto['DescripcionLargaProducto']);
-        $precio = (float) $this->conexion->real_escape_string($producto['PrecioProducto']);
-        $cantidad = (int) $this->conexion->real_escape_string($producto['CantidadStockProducto']);
-        $categoria = (int) $this->conexion->real_escape_string($producto['CategoriaProducto']);
-        if($producto['EsDestacado'])
-            $esDestacado = 1;
-        else
-            $esDestacado = 0;
+    public function actualizarSlider($slider){
+        $id = (int) $this->conexion->real_escape_string($slider['IdSlider']);
+        $titulo = $this->conexion->real_escape_string($slider['TituloImagen']);
+        $orden = $this->conexion->real_escape_string($slider['OrdenImagen']);
         $query = "";
-        if( !empty($producto["IdImagen"]) ){
-            $imagen = (int) $this->conexion->real_escape_string($producto['IdImagen']);
-            $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", EsDestacado = ".$esDestacado.", Imagen = ".$imagen."  WHERE IdProducto = ".$id;
+        if( !empty($slider["IdImagen"]) ){
+            $imagen = (int) $this->conexion->real_escape_string($slider['IdImagen']);
+            $query = "UPDATE Slider SET TituloImagen = '".$titulo."', OrdenImagen = ".$orden.", Imagen = ".$imagen." WHERE IdSlider = ".$id;
         }
         else{
-            $query = "UPDATE Producto SET NombreProducto = '".$nombre."', DescripcionCortaProducto = '".$descripcionCorta."', DescripcionLargaProducto = ' ".$descripcionLarga."', PrecioProducto = ".$precio.", CantidadStockProducto = ".$cantidad.", CategoriaProducto = ".$categoria.", EsDestacado = ".$esDestacado."  WHERE IdProducto = ".$id;
+            $query = "UPDATE Slider SET TituloImagen = '".$titulo."', OrdenImagen = ".$orden." WHERE IdSlider = ".$id;
         }
         return $this->conexion->query($query);
     }
     
-    public function eliminarProducto($idProducto){
-        $id = (int) $this->conexion->real_escape_string($idProducto);
-        $query = "DELETE FROM Producto WHERE IdProducto = ".$id;
+    public function eliminarSlider($idSlider){
+        $id = (int) $this->conexion->real_escape_string($idSlider);
+        $query = "DELETE FROM Slider WHERE IdSlider = ".$id;
         return $this->conexion->query($query);
     }
 }
