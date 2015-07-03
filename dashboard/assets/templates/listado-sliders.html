@@ -1,0 +1,13 @@
+{{#each sliders}}
+<tr id="producto-{{IdProducto}}">
+    <td class="IdSlider">{{IdSlider}}</td>
+    <td class="TituloImagen">{{TituloImagen}}</td>
+    <td class="OrdenImagen">{{OrdenImagen}}</td>
+    <td class="Imagen"><img src="{{Path}}{{IdImagen}}/{{FileName}}" width="200" height="200" /></td>
+    <td>
+        <a class="btn btn-default editar" href="form-producto.php?IdProducto={{IdProducto}}">Editar</a>&nbsp;
+        <a class="btn btn-default eliminar">Eliminar</a>
+    </td>
+    <td class="UrlImagen hide">{{UrlImagen}}</td>
+</tr>
+{{/each}}
