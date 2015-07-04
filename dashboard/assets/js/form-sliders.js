@@ -3,7 +3,7 @@
      var URI = {
         GUARDAR : "actions/api-sliders.php?action=guardar",
         ACTUALIZAR :  "actions/api-sliders.php?action=actualizar",
-         UPLOAD : "actions/api-productos.php?action=subir"
+         UPLOAD : "actions/api-sliders.php?action=subir"
     };
       var files;
       var changeImage = false;

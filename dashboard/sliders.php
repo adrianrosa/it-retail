@@ -2,7 +2,8 @@
 <!doctype html>
 <html class="no-js" lang="">
     <head>     
-        <?php require('partials/header.php'); ?>        
+        <?php require('partials/header.php'); ?>  
+        <link rel="stylesheet" href="./assets/js/vendor/bootstrap-table.css" />      
     </head>
     <body>
         <?php require('partials/menu-principal.php') ?>
@@ -18,11 +19,11 @@
                       <h1 class="page-header">Sliders</h1>
                       <a id="crear-slider" class="btn btn-primary nuevo">Nuevo registro</a>
                       <div class="table-responsive">
-                        <table id="tabla-sliders" class="table table-striped tabla-general">
+                        <table id="tabla-sliders" class="table table-striped tabla-general" data-sort-name="name" data-sort-order="desc">
                           <thead>
                             <tr>
-                              <th>#</th>
-                              <th>Título</th>
+                              <th data-field="id" data-align="right" data-sortable="true">#</th>
+                              <th data-field="name" data-align="center" data-sortable="true">Título</th>
                               <th>Orden</th>
                               <th>Imagen</th>
                               <th>Acciones</th>
@@ -39,6 +40,7 @@
             </div>   
         </div>
         <script src="./assets/js/sliders.js"></script>
+        <script src="./assets/js/vendor/bootstrap-table.js"></script>
         <?php require("partials/confirm-modal.php"); ?>
     </body>
 </html>
