@@ -10,7 +10,7 @@ class Slider
     }
     
     public function obtenerTodosLosSliders(){
-        $query = "SELECT S.*, I.Path, I.FileName, I.IdImagen FROM Slider as S, Imagen as I WHERE S.Imagen = I.IdImagen;";
+        $query = "SELECT S.*, I.Path, I.FileName, I.IdImagen FROM Slider as S, Imagen as I WHERE S.Imagen = I.IdImagen ORDER BY S.OrdenImagen ASC, S.IdSlider ASC;";
         $sliders = array();
         if( $result = $this->conexion->query($query) ){
             while( $fila = $result->fetch_assoc() ){

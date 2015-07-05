@@ -56,6 +56,23 @@
         }
     }
 
+    function listarSliders($request){
+        require("../dashboard/models/slider.php");
+        $s = new Slider();
+        if($sliders = $s->obtenerTodosLosSliders()){
+            sendResponse(array(
+                "error" => false,
+                "mensaje" => "",
+                "data" => $sliders
+            ));
+        } else {
+            sendResponse(array(
+                "error" => true,
+                "mensaje" => "Error al obtener los sliders"
+            ));
+        }
+    }
+
     $request = new Request();
     $action = $request->action;
 
@@ -68,6 +85,9 @@
         break;
         case "listar-productos-por-categoria":
             listarProductosPorCategoria($request);
+        break;
+        case "listar-sliders":
+            listarSliders($request);
         break;
         default:
             sendResponse(array(

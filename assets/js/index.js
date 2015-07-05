@@ -1,20 +1,17 @@
 (function ($){
     
-    var listarDestacados = function(){
-        
-        $.get("assets/templates/listado-destacados.html", function(template_html){
-            $.ajax({
-                url: "actions/api.php?action=listar-destacados",
-                method: "GET",
-                dataType: "json"
-            }).done(function(res){
-                if(! res.error){
-                    var html = generarHtmlDestcados(res.data);
-                    $('#listado-destacados').html(html);
-                }
-            }).fail(function(res){
-                alert(res.error.message);
-            });
+    var listarDestacados = function(){       
+        $.ajax({
+            url: "actions/api.php?action=listar-destacados",
+            method: "GET",
+            dataType: "json"
+        }).done(function(res){
+            if(! res.error){
+                var html = generarHtmlDestcados(res.data);
+                $('#listado-destacados').html(html);
+            }
+        }).fail(function(res){
+            alert(res.error.message);
         });
     };
     
@@ -49,6 +46,48 @@
             count++;
         });
         return htmlCode;
+    }
+    
+    var listarSliders = function(){
+        $.get('./assets/templates/listado-sliders.html', function(template_text){
+            $.ajax({
+                url: "actions/api.php?action=listar-sliders",
+                method: "GET",
+                dataType: "json"
+            }).done(function(res){
+                if(! res.error){
+                    var indices = new Array();            
+                    for(var i = 0; i < res.data.length; i++){
+                        var indice = new Object();
+                        indice["i"] = i;
+                        indices[i] = indice;
+                    }
+                    var context = {                  
+                        sliders : res.data,
+                        contador: indices
+                    };               
+                    var template = Handlebars.compile(template_text);
+                    var html = template(context);
+                    $('#myCarousel').html(html);
+                    establecerEstilosSlider();
+                }
+            }).fail(function(res){
+                alert(res.error.message);
+            });
+        });
+    };
+    
+    listarSliders();
+    
+    function establecerEstilosSlider(){
+        $('div.carousel-inner div').each(function(){
+            $(this).addClass('active');
+            return false;
+        });
+        $('ol.carousel-indicators li').each(function(){
+            $(this).addClass('active');
+            return false;
+        });
     }
     
 })(jQuery);

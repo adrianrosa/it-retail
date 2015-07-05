@@ -66,42 +66,32 @@
 
         <!-- SLIDER -->
         <header id="myCarousel" class="carousel slide slider">
-            <ol class="carousel-indicators">
+            <!--<ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol> 
+            </ol> -->
 
-            <div class="carousel-inner">
+            <!--<div class="carousel-inner">
 				<div class="item active">
-					<!-- Set the second background image using inline CSS below. -->
 					<div class="fill" style="background-image:url('./assets/img/disco-duro-sandisk.jpg');"></div>
 					<div class="carousel-caption">
 						<h2>Llegaron los nuevos discos duros de estado sólido</h2>
 					</div>
 				</div>
 				<div class="item">
-					<!-- Set the third background image using inline CSS below. -->
 					<div class="fill" style="background-image:url('./assets/img/ultrabooks.jpg');"></div>
 					<div class="carousel-caption">
 						<h2>Conocé la última generación HP de Ultrabooks</h2>
 					</div>
 				</div>
 				<div class="item">
-					<!-- Set the first background image using inline CSS below. -->
 					<div class="fill" style="background-image:url('./assets/img/datacenter_servidores.jpg');"></div>
 					<div class="carousel-caption">
 						<h2>Lo último en servidores y racks</h2>
 					</div>
 				</div>
-            </div>
-
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="icon-prev"></span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="icon-next"></span>
-            </a>
+            </div>-->
         </header>
 
         <!-- CONTENT -->
@@ -216,10 +206,8 @@
 
         </div>  
         
-        <script src="./assets/js/index.js" defer></script>
-        
-		<script src="./assets/js/utils.js" defer></script>
-		
+        <script src="./assets/js/index.js"></script>
+        <script src="./assets/js/utils.js" defer></script>
 		<script src="./assets/js/carrito-compras.js" defer></script>
 
     </body>

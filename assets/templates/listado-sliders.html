@@ -1,0 +1,21 @@
+<ol class="carousel-indicators">
+    {{#each contador}}
+        <li data-target="#myCarousel" data-slide-to="{{i}}" class=""></li>
+    {{/each}}
+</ol>
+<div class="carousel-inner">
+    {{#each sliders}} 
+        <div class="item">
+            <div class="fill" style="background-image:url('./dashboard/{{Path}}/{{IdImagen}}/{{FileName}}');"></div>
+            <div class="carousel-caption">
+                <h2>{{TituloImagen}}</h2>
+            </div>
+        </div>
+    {{/each}}
+</div>
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="icon-prev"></span>
+</a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="icon-next"></span>
+</a>
