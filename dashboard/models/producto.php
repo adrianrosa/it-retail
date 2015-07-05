@@ -22,7 +22,7 @@ class Producto
     }
     
     public function obtenerTodosLosDestacados(){
-        $query = "SELECT P.*, C.NombreCategoria, I.* FROM Producto as P, Categoria as C, Imagen as I WHERE P.CategoriaProducto = C.IdCategoria AND P.Imagen = I.IdImagen AND EsDestacado = 1;";
+        $query = "SELECT P.*, C.NombreCategoria, I.* FROM Producto as P, Categoria as C, Imagen as I WHERE P.CategoriaProducto = C.IdCategoria AND P.Imagen = I.IdImagen AND EsDestacado = 1 ORDER BY P.IdProducto DESC;";
         $productos = array();
         if( $result = $this->conexion->query($query) ){
             while( $fila = $result->fetch_assoc() ){
@@ -34,7 +34,7 @@ class Producto
     }
     
     public function obtenerProductosPorCategoria($idCategoria){
-        $query = "SELECT P.*, C.NombreCategoria, I.* FROM Producto as P, Categoria as C, Imagen as I WHERE P.CategoriaProducto = C.IdCategoria AND P.Imagen = I.IdImagen AND CategoriaProducto = $idCategoria ;";
+        $query = "SELECT P.*, C.NombreCategoria, I.* FROM Producto as P, Categoria as C, Imagen as I WHERE P.CategoriaProducto = C.IdCategoria AND P.Imagen = I.IdImagen AND CategoriaProducto = $idCategoria ORDER BY P.IdProducto DESC;";
         $productos = array();
         if( $result = $this->conexion->query($query) ){
             while( $fila = $result->fetch_assoc() ){
