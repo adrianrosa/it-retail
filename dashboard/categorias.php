@@ -15,14 +15,14 @@
             <h1 class="page-header">Categorías</h1>
            <a id="crear-categoria" class="btn btn-primary nuevo">Nuevo registro</a>
           <div class="table-responsive">
-            <table id="tabla-categorias" class="table table-striped tabla-general">
+            <table id="tabla-categorias" class="table table-striped tabla-general table_sort">
               <thead>
                 <tr>
                   <th>#</th>
                   <th>Nombre</th>
                   <th>Descripción</th>
                   <th>Orden</th>
-                  <th>Acciones</th>
+                  <th class="no-sort">Acciones</th>
                 </tr>
               </thead>
                 <tbody>                                     
@@ -33,6 +33,7 @@
       </div>
     </div>
     <?php require('partials/footer.php') ?>
+    <script src="./assets/js/table-sort.js"></script>
     <script src="./assets/js/categorias.js"></script>
     <?php require("partials/confirm-modal.php"); ?>
   </body>

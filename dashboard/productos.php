@@ -15,18 +15,18 @@
           <h1 class="page-header">Productos</h1>
           <a id="crear" class="btn btn-primary nuevo" href="form-producto.php">Nuevo registro</a>
           <div class="table-responsive">
-            <table id="tabla-productos" class="table table-striped tabla-general">
+            <table id="tabla-productos" class="table table-striped tabla-general table_sort">
               <thead>
                 <tr>
                   <th>#</th>
                   <th>Nombre</th>
                   <th>Descripción Corta</th>
                   <th class="hide">Descripción Larga</th>
-                  <th>Precio</th>
+                  <th>Precio $</th>
                   <th>Categoría</th>
                   <th>Cantidad en stock</th>
                   <th class="hide">Es destacado</th>
-                  <th>Acciones</th>
+                  <th class="no-sort">Acciones</th>
                   <th class="hide">Url</th>
                 </tr>
               </thead>
@@ -38,6 +38,7 @@
       </div>
     </div>
     <?php require('partials/footer.php') ?> 
+    <script src="./assets/js/table-sort.js"></script>
     <script src="./assets/js/productos.js"></script>
     <?php require("partials/confirm-modal.php"); ?>
   </body>

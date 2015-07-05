@@ -154,6 +154,5 @@
 		
         <script src="./assets/js/utils.js"></script>
 		<script src="./assets/js/producto.js"></script>
-
     </body>
 </html>

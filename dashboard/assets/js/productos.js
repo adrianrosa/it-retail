@@ -77,7 +77,10 @@
         return false;
     });
     
-
+    $("table.table_sort").sort_table({
+        "action" : "init"
+    });
+    
     getProductos();
     
 })(jQuery , Handlebars);

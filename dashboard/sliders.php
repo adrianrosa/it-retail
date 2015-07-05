@@ -3,7 +3,6 @@
 <html class="no-js" lang="">
     <head>     
         <?php require('partials/header.php'); ?>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css" />
     </head>
     <body>
         <?php require('partials/menu-principal.php') ?>

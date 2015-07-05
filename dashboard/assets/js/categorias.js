@@ -95,4 +95,8 @@
         }
     );
     
+    $("table.table_sort").sort_table({
+        "action" : "init"
+    });
+    
 })(jQuery , Handlebars);
