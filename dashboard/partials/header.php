@@ -7,7 +7,7 @@
 <link rel="icon" href="./assets/css/favicon.ico">
 <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="./assets/css/jquery-ui.css"> 
-<link rel="stylesheet" href="./assets/css/dashboard/dashboard.css">
+<link rel="stylesheet" href="./assets/css/dashboard.css">
 <!--[if lt IE 9]>
     <script src="./assets/js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
 <![endif]-->

@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <?php require('partials/header.php') ?>
-    <link href="./assets/css/dashboard/chat.css" rel="stylesheet">   
+    <link href="./assets/css/chat.css" rel="stylesheet">   
   </head>
 
   <body>
