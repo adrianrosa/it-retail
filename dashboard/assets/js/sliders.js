@@ -91,6 +91,9 @@
         }
     );
     
+    $("table.table_sort").sort_table({
+        "action" : "init"
+    });
 
     getSliders();
     

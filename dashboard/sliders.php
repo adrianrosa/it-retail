@@ -2,8 +2,8 @@
 <!doctype html>
 <html class="no-js" lang="">
     <head>     
-        <?php require('partials/header.php'); ?>  
-        <link rel="stylesheet" href="./assets/js/vendor/bootstrap-table.css" />      
+        <?php require('partials/header.php'); ?>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css" />
     </head>
     <body>
         <?php require('partials/menu-principal.php') ?>
@@ -19,14 +19,14 @@
                       <h1 class="page-header">Sliders</h1>
                       <a id="crear-slider" class="btn btn-primary nuevo">Nuevo registro</a>
                       <div class="table-responsive">
-                        <table id="tabla-sliders" class="table table-striped tabla-general" data-sort-name="name" data-sort-order="desc">
+                        <table id="tabla-sliders" class="table table-striped tabla-general table_sort">
                           <thead>
                             <tr>
-                              <th data-field="id" data-align="right" data-sortable="true">#</th>
-                              <th data-field="name" data-align="center" data-sortable="true">Título</th>
+                              <th>#</th>
+                              <th>Título</th>
                               <th>Orden</th>
-                              <th>Imagen</th>
-                              <th>Acciones</th>
+                              <th class="no-sort">Imagen</th>
+                              <th class="no-sort">Acciones</th>
                               <th class="hide">Url</th>
                             </tr>
                           </thead>
@@ -39,8 +39,8 @@
                     <?php require('partials/footer.php') ?>
             </div>   
         </div>
-        <script src="./assets/js/sliders.js"></script>
-        <script src="./assets/js/vendor/bootstrap-table.js"></script>
+        <script src="./assets/js/table-sort.js"></script>
+        <script src="./assets/js/sliders.js" defer></script>
         <?php require("partials/confirm-modal.php"); ?>
     </body>
 </html>
