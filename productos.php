@@ -1,4 +1,10 @@
-<?php $seccion="Productos"; ?>
+<?php 
+    $seccion="Productos"; 
+    include("./models/carrito.php");     
+    if (!isset($_SESSION["objcarrito"])){ 
+   	    $_SESSION["objcarrito"] = new Carrito(); 
+    }
+?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>     

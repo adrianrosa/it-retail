@@ -30,4 +30,15 @@
         return patron.test(tecla_final);
     });
     
+    $('body').on('click', 'a.agregar-carrito', function(e){
+        var href = $(this).attr('href');
+        $(this).attr('href', href + '&cantidad=' + $(this).prev('p').find('input.incremento').val());
+        var producto = $(".agregar-carrito").siblings('h3').html();
+        var cantidad = $(".agregar-carrito").siblings('p').children('.incremento').val();
+        var precioLabel =   $(".agregar-carrito").siblings('.precio').html();
+        var precio =   $(".agregar-carrito").siblings('.precio').attr('price');
+        if(! confirm('¿Está seguro que desea agregar ' + cantidad + ' ítems del producto ' + producto + '?') )
+            e.preventDefault();
+    });
+    
 })(jQuery);

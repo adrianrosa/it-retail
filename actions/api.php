@@ -73,6 +73,29 @@
         }
     }
 
+    function listarCarrito($request){
+        require("../models/carrito.php");
+        $carrito = $_SESSION['objcarrito'];
+        if($items = $carrito->imprimeCarrito()){
+            sendResponse(array(
+                "error" => false,
+                "mensaje" => "",
+                "data" => $items
+            ));
+        } else {
+            sendResponse(array(
+                "error" => true,
+                "mensaje" => "Error al obtener los ítems del carrito"
+            ));
+        }
+    }
+
+    function agregarProductoCarrito($request){
+        require("../models/carrito.php");
+        $carrito = $_SESSION['objcarrito'];
+        $carrito->introduceProducto($request->id, $request->nombre, $request->precio, $request->cantidad); 
+    }
+
     $request = new Request();
     $action = $request->action;
 
@@ -88,6 +111,12 @@
         break;
         case "listar-sliders":
             listarSliders($request);
+        break;
+        case "listar-carrito":
+            listarCarrito($request);
+        break;
+        case "agregar-carrito":
+            agregarProductoCarrito($request);
         break;
         default:
             sendResponse(array(

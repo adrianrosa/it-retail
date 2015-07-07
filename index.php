@@ -1,4 +1,10 @@
-<?php $seccion="Home"; ?>
+<?php 
+    $seccion="Home"; 
+    include("./models/carrito.php");  
+    if (!isset($_SESSION["objcarrito"])){ 
+   	    $_SESSION["objcarrito"] = new Carrito(); 
+    }
+?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -15,15 +21,15 @@
 		<link rel="stylesheet" href="./assets/css/jquery-ui.css">
 		
 		<script src="./assets/js/vendor/jquery-1.10.2.js"></script>
-		<!--<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script src="./assets/js/vendor/jquery-ui.js"></script>
 
-		<script>
+		<script defer>
 			var producto = "";
 			var cantidad = 0;
 			var precioLabel = "";
 			var precio = 0.0;
 			
-			$(function() {
+			
 				$( "#dialog-confirm" ).dialog({
 				  autoOpen: false,
 				  resizable: true,
@@ -41,16 +47,11 @@
 				  }
 				});
 			  
-			   $( ".agregar-carrito" ).click(function() {
-					producto = $(".agregar-carrito").siblings('h3').html();
-					cantidad = $(".agregar-carrito").siblings('p').children('.incremento').val();
-					precioLabel =   $(".agregar-carrito").siblings('.precio').html();
-					precio =   $(".agregar-carrito").siblings('.precio').attr('price');
-					$( "#dialog-confirm p #valor-dialog" ).html( producto + " <br />Cantidad: " + cantidad + "<br />" + precio );
-					$( "#dialog-confirm" ).dialog( "open" );
+			   $( "body" ).on("click", "a.agregar-carrito", function() {
+
 				});
-			});
-		</script>-->
+			
+		</script>
 		
 		<script type="text/javascript">
 			window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
@@ -155,7 +156,7 @@
                 </div>
 				
 				<!-- SIDEBAR DERECHA -->
-                <div class="col-md-3">
+                <div id="carrito" class="col-md-3">
 					
 					<!-- CARRITO DE COMPRAS -->
 					<!--<div class="carrito-compras">
@@ -198,10 +199,10 @@
 				
             </div>
 			
-			<!-- Dialog carrito 
+			<!-- Dialog carrito -->
 			<div id="dialog-confirm" title="¿Desea agregarlo al carrito?">
 			  <p><span class="ui-icon ui-icon-check" style="float:left;"></span><span id="valor-dialog"></span></p>
-			</div>-->
+			</div>
 			
             <?php require('partials/footer.php'); ?>
 

@@ -1,4 +1,23 @@
-var total = 0;
+(function($){
+    
+    var listarItemsCarrito = function(){       
+        $.ajax({
+            url: "actions/api.php?action=listar-carrito",
+            method: "GET",
+            dataType: "json"
+        }).done(function(res){
+            if(! res.error){
+                $('#carrito').html(res.data);
+            }
+        }).fail(function(res){
+            alert(res.error.mensaje);
+        });
+    };
+    
+    listarItemsCarrito();
+    
+})(jQuery);
+/*var total = 0;
 
 $(document).ready(function(){
 
@@ -39,4 +58,4 @@ function actualizarImporteTotal(){
 	}
 	
 	$('#importe-total').html(' $ ' + total);
-}
+}*/

@@ -76,7 +76,7 @@
                                     <p>" + producto.DescripcionCortaProducto + "</p> \
 				    <p class='precio' price='" + producto.PrecioProducto + "'>$ " + producto.PrecioProducto + "</p> \
                                     <p><button class='glyphicon glyphicon-minus-sign menos'></button>&nbsp;<input type='text' value='1' maxlength='3' \ class='incremento' >&nbsp;<button class='glyphicon glyphicon-plus-sign mas'></button></p> \
-                                    <p><a href='#' class='btn btn-primary' role='button'>Agregar al carrito</a></p> \
+                                    <a href='api.php?action=agregar-carrito&id=" + producto.IdProducto + "&nombre=" + producto.NombreProducto + "&precio=" + producto.PrecioProducto + "' class='btn btn-primary agregar-carrito' role='button'>Agregar al carrito</a> \
                                 </div> \
                             </div>";
         });
