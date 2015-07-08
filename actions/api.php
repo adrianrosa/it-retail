@@ -74,7 +74,7 @@
     }
 
     function listarCarrito($request){
-        require("../models/carrito.php");
+        require_once("../models/carrito.php");
         $carrito = $_SESSION['objcarrito'];
         if($items = $carrito->imprimeCarrito()){
             sendResponse(array(
@@ -93,7 +93,34 @@
     function agregarProductoCarrito($request){
         require("../models/carrito.php");
         $carrito = $_SESSION['objcarrito'];
-        $carrito->introduceProducto($request->id, $request->nombre, $request->precio, $request->cantidad); 
+        if( $carrito->introduceProducto($request->id, $request->nombre, $request->precio, $request->cantidad) ){
+            sendResponse(array(
+                "error" => false,
+                "mensaje" => "Producto agregado al carrito exitosamente"
+            ));
+        } else {
+            sendResponse(array(
+                "error" => true,
+                "mensaje" => "Error al agregar ítem al carrito"
+            ));
+        }
+        //return $carrito->imprimeCarrito();
+    }
+
+    function eliminarProductoCarrito($request){
+        require("../models/carrito.php");
+        $carrito = $_SESSION['objcarrito'];
+        if( $carrito->eliminaProducto($request->linea) ){
+            sendResponse(array(
+                "error" => false,
+                "mensaje" => "Producto borrado del carrito exitosamente"
+            ));
+        } else {
+            sendResponse(array(
+                "error" => true,
+                "mensaje" => "Error al borrar el ítem del carrito"
+            ));
+        }
     }
 
     $request = new Request();
@@ -117,6 +144,9 @@
         break;
         case "agregar-carrito":
             agregarProductoCarrito($request);
+        break;
+        case "eliminar-carrito":
+            eliminarProductoCarrito($request);
         break;
         default:
             sendResponse(array(

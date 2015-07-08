@@ -1,5 +1,7 @@
 (function($){
     
+    var hrefAgregar;
+    
     var listarItemsCarrito = function(){       
         $.ajax({
             url: "actions/api.php?action=listar-carrito",
@@ -16,46 +18,55 @@
     
     listarItemsCarrito();
     
+    $('body').on('click', 'button.agregar-carrito', function(e){
+        if(!confirmarAgregado(e, $(this)))
+            return false;
+        var url = $(this).attr('url')+'&cantidad='+href;
+        $.ajax({
+            url: url,
+            dataType: 'json',
+            method: 'POST'
+        }).done(function(res){
+            if(! res.error){
+                listarItemsCarrito();
+            }
+        }).fail(function(){
+            alert("Error al agregar ítem al carrito");
+        });
+    });
+    
+    function confirmarAgregado(e, elem){
+        href = elem.prev('p').find('input.incremento').val();
+        var producto = $(".agregar-carrito").siblings('h3').html();
+        var cantidad = $(".agregar-carrito").siblings('p').children('.incremento').val();
+        if(! confirm('¿Está seguro que desea agregar ' + cantidad + ' ítems del producto ' + producto + '?') ){
+            e.preventDefault();
+            return false;
+        }
+        return true;
+    }
+    
+    $('body').on('click', 'a.eliminar-carrito', function(e){
+       if(!confirmarBorrado(e, $(this)))
+           return false;
+        var url = $(this).attr('url');
+        $.ajax({
+            url: url,
+            method: 'POST',
+            dataType: 'json'
+        }).done(function(res){
+            if(!res.error)
+                listarItemsCarrito();
+        });
+    });
+    
+    function confirmarBorrado(e, elem){
+        e.preventDefault();
+        var producto = elem.closest('tr').find('.nombre-producto').html();
+        if( ! confirm("Está seguro que desea eliminar el producto " + producto + " del carrito?") ){
+            return false;
+        }
+        return true;
+    }
+    
 })(jQuery);
-/*var total = 0;
-
-$(document).ready(function(){
-
-	if($('.linea').length == 0){
-		$('.carrito tbody').html('<tr id="no-items"><td>Carrito vacío</td><td></td><td> 0 ítems</td></tr>'+
-		                         '<tr id="total-carrito" class="linea-carrito total">' +
-									'<td>TOTAL</td>' +
-									'<td></td>' +
-									'<td id="importe-total"> $ 0.00</td> ' +
-								'</tr>');
-	}
-});
-
-function agregarItem(producto, cantidad, precioLabel, precio){
-	//alert("Nombre: " + nombre + " cantidad: " + cantidad + " precio: " + precio);
-	$('.cabecera-carrito').removeClass('hide');
-	$('.carrito tbody').children('#no-items').addClass('hide');
-	var carritoContenido = $('.carrito tbody').html();
-	$('.carrito tbody').html(carritoContenido + '<tr class="linea-carrito linea">' +						
-								'<td><a href="">' + producto + '</a></td>' +
-									'<td><a href="">' + cantidad + '</a></td>' +
-									'<td class="importe"><a value="' + precio + '" href=""> ' + precioLabel + '</a></td>' +
-								'</tr>');
-	actualizarImporteTotal();
-	
-}
-
-function actualizarImporteTotal(){
-
-	if($('.linea').length > 0){
-		//alert('hay items');	
-		$('.linea td').each(function(){
-			if( $(this).hasClass('importe') ){
-				var importeLinea = $(this).find('a').attr('value');
-				total += parseFloat(importeLinea);
-			}
-		});		
-	}
-	
-	$('#importe-total').html(' $ ' + total);
-}*/

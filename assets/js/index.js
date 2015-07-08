@@ -35,7 +35,7 @@
                                 <p> \
                                     <button class='glyphicon glyphicon-minus-sign menos'></button>&nbsp;<input type='text' value='1' maxlength='3' class='incremento' >&nbsp;                 <button class='glyphicon glyphicon-plus-sign mas'></button> \
                                 </p> \
-                                <a href='api.php?action=agregar-carrito&id=" + destacado.IdProducto + "&nombre=" + destacado.NombreProducto + "&precio=" + destacado.PrecioProducto + "' class='btn btn-primary agregar-carrito' role='button'>Agregar al carrito</a> \
+                                <button url='actions/api.php?action=agregar-carrito&id=" + destacado.IdProducto + "&nombre=" + destacado.NombreProducto + "&precio=" + destacado.PrecioProducto + "' class='btn btn-primary agregar-carrito' role='button'>Agregar al carrito</button> \
                               </div> \
                             </div> \
                         </div>";  
@@ -89,5 +89,5 @@
             return false;
         });
     }
-    
+        
 })(jQuery);

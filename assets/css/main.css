@@ -1,8 +1,7 @@
-/*body
+body, .thumbnail, .producto
 {
-    background-color: #d3d3d3;
-    background-size: 100%;
-}*/
+    background-image: url('../img/pattern12.png');
+}
 
 /*MENU*/
 .menu
@@ -54,12 +53,13 @@
 /* ---------------------------------------- */
 
 /*CARRITO DE COMPRAS*/
-.carrito-compras
-{
+#carrito{
     background-color: #D8D8D8;
     margin-top: 20px;
     border-radius: 5px;
     text-align: center;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 
 .carrito
@@ -72,7 +72,9 @@
 {
     font-size: 20px;
     padding-top: 10px;
-    color: #449d44;
+    padding-bottom: 10px;
+    color: #fff;
+    background-color: #449d44;
 }
 
 .linea-carrito
@@ -98,6 +100,19 @@
 
 .carrito .cabecera-carrito th{
 	text-align: center;
+}
+
+.btn-eliminar :hover{
+    cursor: pointer;
+}
+
+.ver-carrito a{
+    margin-bottom: 10px;
+}
+
+.confirmar-carrito a{
+    background-color: #449d44;
+    border-color: #449d44;
 }
 /* ----------------------------------- */
 

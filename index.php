@@ -9,8 +9,6 @@
 <html class="no-js" lang="">
     <head>
         <?php require('partials/header.php'); ?>
-
-        <link rel="stylesheet" href="./assets/css/main.css">
 		
 		<link rel="stylesheet" href="./assets/css/home.css">
 
@@ -101,7 +99,7 @@
 
             <div class="row">
                 
-                <div class="col-md-9 destacados">
+                <div class="col-md-8 destacados">
                     <h2 class="titulo-destacados">Productos Destacados</h2>
                     <div class="row" id="listado-destacados">
                         <!--<div class="col-md-6">
@@ -156,7 +154,7 @@
                 </div>
 				
 				<!-- SIDEBAR DERECHA -->
-                <div id="carrito" class="col-md-3">
+                <div id="carrito" class="col-md-4">
 					
 					<!-- CARRITO DE COMPRAS -->
 					<!--<div class="carrito-compras">

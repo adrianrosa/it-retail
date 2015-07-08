@@ -34,16 +34,13 @@
 					</ul>
 					
 					<!-- CARRITO DE COMPRAS -->
-					<div class="carrito-compras">
-						<h3 class="titulo-carrito">
+					<div id="carrito">
+						<!--<h3 class="titulo-carrito">
 							<span class="glyphicon glyphicon-shopping-cart"></span>
 							Carrito de compras
 						</h3>
 						<table class="carrito">
 							<tbody>
-								<!--<tr>
-									<td>0 artíulos</td>
-								</tr>-->
 								<tr class="linea-carrito">
 									<td><a href="">Producto 1</a></td>
 									<td><a href=""> $ 200.00</a></td>
@@ -57,7 +54,7 @@
 									<td> $ 400.00</td>
 								</tr>
 							</tbody>
-						</table>
+						</table>-->
 					</div>
 				</div>
 				
@@ -158,7 +155,8 @@
 			<?php require('partials/footer.php') ?>
 
         </div>   
-		
+        
+		<script src="./assets/js/carrito-compras.js"></script>
         <script src="./assets/js/utils.js"></script>
 		<script src="./assets/js/producto.js"></script>
     </body>
