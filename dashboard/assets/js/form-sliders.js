@@ -62,7 +62,6 @@
         $("#urlImagen").siblings(".help-block").html(""); 
     };
     
-
     $("#form-slider").on("submit", function(){
         cleanFormError();
         if(validarFormData()){
