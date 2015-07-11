@@ -37,8 +37,8 @@
     
     function confirmarAgregado(e, elem){
         href = elem.prev('p').find('input.incremento').val();
-        var producto = $(".agregar-carrito").siblings('h3').html();
-        var cantidad = $(".agregar-carrito").siblings('p').children('.incremento').val();
+        var producto = elem.siblings('h3').html();
+        var cantidad = elem.siblings('p').children('.incremento').val();
         if(! confirm('¿Está seguro que desea agregar ' + cantidad + ' ítems del producto ' + producto + '?') ){
             e.preventDefault();
             return false;

@@ -39,8 +39,8 @@ body, .thumbnail, .producto
 .controles-sesion
 {
     text-align: right;
-    color: #fff;
-    padding: 15px;
+   /*color: #fff;*/
+    padding: 15px 15px 15px 15px;
 }
 
 .controles-sesion .btn-primary a,
@@ -48,6 +48,15 @@ body, .thumbnail, .producto
 {
 	color: #fff;
 	text-decoration: none;
+}
+
+.controles-sesion span.panel-login{
+    color: #000 ;
+}
+
+.controles-sesion a{
+    padding-right: 3px;
+    border-right: 1px solid #000;
 }
 
 /* ---------------------------------------- */

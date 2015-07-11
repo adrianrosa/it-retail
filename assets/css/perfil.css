@@ -1,0 +1,22 @@
+#tabla-compras,
+#tabla-compras thead th,
+#tabla-compras tbody td{
+    border: 1px solid #000;
+}
+
+#tabla-compras,
+#tabla-compras thead tr th{
+    text-align: center;
+}
+
+.titulo{
+    color: #4cae4c;
+}
+
+.datos{
+    font-size: 22px;
+}
+
+.compras h2{
+    color: #337ab7;
+}

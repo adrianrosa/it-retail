@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('#btn-login').addClass('hide');
+	//$('#btn-login').addClass('hide');
 });
 
 function enviarFormLogin(idForm){

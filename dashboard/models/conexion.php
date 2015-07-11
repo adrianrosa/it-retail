@@ -14,7 +14,8 @@ class Conexion extends MySQLi{
     public static function obtenerInstancia(){
         if (self::$instancia == null) {
             self::$instancia = new self(self::HOST, self::USER, self::PASSWORD, self::DATABASE);
-            self::$instancia->query("SET NAMES 'utf-8'");
+            self::$instancia->set_charset("utf8");
+            //self::$instancia->query("SET NAMES 'utf-8'");
         }
         return self::$instancia;
     }
