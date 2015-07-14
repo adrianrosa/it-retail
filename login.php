@@ -10,7 +10,7 @@
     </head>
     <body>
 	
-        <?= require('partials/menu-principal.php') ?>
+        <?php require('partials/menu-principal.php'); ?>
 
         <div class="container">
 		

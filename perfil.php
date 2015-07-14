@@ -3,10 +3,10 @@
     require("./dashboard/models/usuario.php");
     $usuario = array();
     $u = new Usuario();
-    $id = $_GET["id"];
+    $id = $_SESSION["id"];
     $usuario = $u->obtenerUsuario($id);
     $tituloSeccion = $usuario["Apellido"]. ", " . $usuario["Nombre"];
-    $seccion="Perfil ".$_GET["usuario"]; 
+    $seccion="Perfil ".$_SESSION["email"]; 
 ?>
 <!doctype html>
 <html class="no-js" lang="">

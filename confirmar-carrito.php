@@ -1,1 +1,4 @@
-<?php include('seguridad.php'); $seccion = "Confirmar carrito"; ?>
+<?php 
+    include('seguridad.php'); 
+    $seccion = "Confirmar carrito"; 
+?>

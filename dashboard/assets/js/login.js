@@ -33,7 +33,7 @@ $('#btn-login').on("click", function(){
 		establecerClase($('#inputEmail'));
 		cancelSubmit = true;
 	}
-	if(password == null || password == '' || password.length == 0){
+	if(password == null || password == '' || password.length == 0 ){
 		establecerClase($('#inputPassword'));
 		cancelSubmit = true;
 	}

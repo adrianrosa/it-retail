@@ -88,7 +88,7 @@
                              <td>' . $this->suma_cantidad . '</td>
                              <td id="importe-total">$'. $suma .'</td>';
                 $html = $html .  '</tr>';
-                //$html = $html .  '<tr class="ver-carrito"><td></td><td><a href="ver-carrito.php" class="btn btn-primary">Ver carrito</a></td><td></td></tr>';
+                $html = $html .  '<tr class="ver-carrito"><td></td><td><a href="ver-carrito.php" class="btn btn-primary">Ver carrito</a></td><td></td></tr>';
                 $html = $html .  '<tr class="confirmar-carrito"><td></td><td><a href="confirmar-carrito.php" class="btn btn-primary">Confirmar compra</a></td><td></td></tr>';
             }
             
