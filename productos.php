@@ -8,7 +8,8 @@
 <!doctype html>
 <html class="no-js" lang="">
     <head>     
-        <?php require('partials/header.php'); ?>        
+        <?php require('partials/header.php'); ?> 
+        <link rel="stylesheet" href="./assets/css/carrito.css">	
 		<link rel="stylesheet" href="./assets/css/productos.css">	
         <link href="./assets/css/half-slider.css" rel="stylesheet">
     </head>

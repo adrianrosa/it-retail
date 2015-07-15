@@ -17,7 +17,9 @@
         <link href="./assets/css/half-slider.css" rel="stylesheet">
 		
 		<link rel="stylesheet" href="./assets/css/jquery-ui.css">
-		
+        
+		<link rel="stylesheet" href="./assets/css/carrito.css">
+        
 		<script src="./assets/js/vendor/jquery-1.10.2.js"></script>
 		<script src="./assets/js/vendor/jquery-ui.js"></script>
 
@@ -99,7 +101,7 @@
 
             <div class="row">
                 
-                <div class="col-md-8 destacados">
+                <div class="col-md-9 destacados">
                     <h2 class="titulo-destacados">Productos Destacados</h2>
                     <div class="row" id="listado-destacados">
                         <!--<div class="col-md-6">
@@ -154,7 +156,7 @@
                 </div>
 				
 				<!-- SIDEBAR DERECHA -->
-                <div id="carrito" class="col-md-4">
+                <div id="carrito" class="col-md-3">
 					
 					<!-- CARRITO DE COMPRAS -->
 					<!--<div class="carrito-compras">

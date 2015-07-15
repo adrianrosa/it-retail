@@ -1,0 +1,43 @@
+ol{
+    list-style: none;
+    width: 100%;
+    padding-left: 20px;
+}
+#carrito li.item{
+    position: relative;
+    margin-top: 6px;
+    padding-bottom: 50px;
+}
+.img-producto{
+    float: left;
+    width: 60px;
+    height: 60px;
+}
+.eliminar-carrito{
+    height: 21px;
+    width: 22px;
+    float: right;
+}
+.cantidad{
+    background: url("http://saboresmarinos.com/skin/frontend/default/artesanos_del_mar/images/cart_sidebar/qty_bg.png") no-repeat scroll center bottom rgba(0, 0, 0, 0);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    height: 31px;
+    left: 210px;
+    position: absolute;
+    text-align: center;
+    top: 37px;
+    width: 30px;
+    line-height: 31px;
+}
+.detalles{
+      margin: 0;
+      padding-left: 72px;
+      padding-right: 10px;
+      text-align: left;
+}
+.precio{
+    color: #449d44;
+    font-weight: bold;
+}

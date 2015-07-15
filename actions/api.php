@@ -93,7 +93,7 @@
     function agregarProductoCarrito($request){
         require("../models/carrito.php");
         $carrito = $_SESSION['objcarrito'];
-        if( $carrito->introduceProducto($request->id, $request->nombre, $request->precio, $request->cantidad) ){
+        if( $carrito->introduceProducto($request->id, $request->nombre, $request->precio, $request->cantidad, $request->img) ){
             sendResponse(array(
                 "error" => false,
                 "mensaje" => "Producto agregado al carrito exitosamente"
