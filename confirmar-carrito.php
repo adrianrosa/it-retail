@@ -30,7 +30,7 @@
 						<p>Seleccione una dirección: </p>
 						<select id="lugar-entrega">
 							<option id="domicilio-fijado"><?= $_SESSION["domicilio"]; ?></option>
-							<option>Elegir otra</option>
+							<option id="otra">Elegir otra</option>
 						</select> 
 						<p id="nuevo-lugar" class="hide">
 							Indique otro lugar para la recibir su pedido: <br />

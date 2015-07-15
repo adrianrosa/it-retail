@@ -34,7 +34,7 @@ $(function() {
 
     $( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+3M +0D",
         beforeShowDay: $.datepicker.noWeekends,showOn: "button",
-        buttonImage: "../Downloads/calendar.gif",
+        buttonImage: "./assets/img/calendar.gif",
         buttonImageOnly: true,
         buttonText: "Select date"
     });
@@ -78,11 +78,35 @@ $(function() {
              $('#listado-carrito').html( html + ' <label class="error-items">El carrito no tiene ítems.</label>');
         }
         
-        if(error)
+        if(error){
             alert("Verificar campos incompletos");
+            return false;
+        }
         
-        //llamar para confirmar
+        var dom = $('#lugar-entrega option:selected').text();
+        var barrio = "";
+        if( dom == 'Elegir otra' ){
+            dom = $('#calle').val() + " " + $('#altura').val();
+            if( $('#piso').val() != null && $('#piso').val() != '' )
+                dom += ( " " + $('#piso').val() );
+            if( $('#depto').val() != null && $('#depto').val() != '' )
+                dom += ( " " + $('#depto').val() );
+            barrio =  $('#barrio option:selected').val();
+        }
         
+        /*var productos = obtenerObjCarrito();
+        
+        $.ajax({
+            url: 'actions/api.php?action=confirmar-carrito',
+            method: 'POST',
+            dataType: 'json',
+            data: {domicilio:dom, localidad:barrio, datos:JSON.stringify( productos  )}
+        }).done(function(res){
+            if(! res.error)
+                alert("todo bien");
+        }).fail(function(){
+            alert("Error en la confirmación");
+        });*/
     });
     
     function validarCampo(campo, lblError){
@@ -96,5 +120,17 @@ $(function() {
             return true;
         }
     }
+    
+    /*function obtenerObjCarrito(){
+        var productos = [];
+        $('#carrito').find('li.item').each(function(){
+            var id = $(this).find('span.id-producto').html();
+            var nombre = $(this).find('div.detalles p.nombre').html();
+            var precio = $(this).find('div.detalles span.precio').attr('precio');
+            var cantidad = $(this).find('div.cantidad').html();
+            productos.push( {idProd:id, nombreProd: nombre, precioProd: precio, cantidadProd: cantidad } );
+        });
+        return productos;
+    }*/
     
 });

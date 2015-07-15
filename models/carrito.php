@@ -85,13 +85,13 @@
                 for ($i=0;$i<$this->num_productos;$i++){ 
                     if($this->array_id_prod[$i]!=0){
                         $this->suma_cantidad += $this->array_cantidad_prod[$i];
-                        $html .= "<li class='item'> <span class='hide'>".$this->array_cantidad_prod[$i]."</span>";
+                        $html .= "<li class='item'> <span class='id-producto hide'>".$this->array_id_prod[$i]."</span>";
                         $html .= "<a><img class='img-producto' src='". $this->array_img_prod[$i] ."' alt='img prod' /></a>";
                         $html .= "<a href='#' class='eliminar-carrito' url='actions/api.php?action=eliminar-carrito&linea=".$i."'><span class='btn-eliminar glyphicon glyphicon-remove-circle'></span></a>";
                         $html .= "
                                     <div class='detalles'>
                                         <p class='nombre'>".$this->array_nombre_prod[$i]."</p>
-                                        <span class='precio'>$ ".$this->array_precio_prod[$i]." </span>
+                                        <span class='precio' precio='".$this->array_precio_prod[$i]."' >$ ".$this->array_precio_prod[$i]." </span>
                                     </div><div class='cantidad'>".$this->array_cantidad_prod[$i]."</div></li><hr/>";
                         $suma += ($this->array_precio_prod[$i] * $this->array_cantidad_prod[$i] ); 
                     }
@@ -143,5 +143,9 @@
             $this->array_id_prod[$linea]=0;
             return true;
         } 
+        
+        function confirmarCarrito($carrito){
+            return true;
+        }
     }
 ?>

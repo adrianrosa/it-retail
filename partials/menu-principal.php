@@ -30,7 +30,7 @@
         <div class="col-md-4 controles-sesion">
             <?php if(!isset($_SESSION["autenticado"])){ 
                 echo '<button id="btn-login" class="btn btn-primary" onclick="window.location=\'login.php\';">LOGIN</button> &nbsp;&nbsp;';
-                echo '<button class="btn btn-success" onclick="window.location=\'registro.php\';">REGISTRARSE</button>';
+                echo '<button class="btn btn-success" >REGISTRARSE</button>';
             } else {
     //<a href="confirmar-carrito.php"><span class="panel-login glyphicon glyphicon-shopping-cart"></span> Carrito</a>&nbsp;&nbsp;
                 echo '<a href="perfil.php?usuario='.$_SESSION["email"].'&id='.$_SESSION["id"].'"><span class="panel-login glyphicon glyphicon-user"></span> Usuario: '.$_SESSION["email"].'</a>';

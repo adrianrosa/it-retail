@@ -140,6 +140,31 @@
         }
     }
 
+    function confirmarCarrito($request){
+        require("../models/carrito.php");
+        $carrito = $_SESSION['objcarrito'];
+        $c = array();
+        $items = json_decode( $request->datos );
+        foreach (range(4, 3, -1) as $profundidad) {
+            var_dump(json_decode($items, true, $profundidad));
+        }
+        var_dump( $items );
+        $c["Domicilio"] = $request->domicilio;
+        $c["Barrio"] = $request->localidad;
+        var_dump($c );
+        if( $carrito->confirmarCarrito($c) ){
+            sendResponse(array(
+                "error" => false,
+                "mensaje" => "Carrito confirmado exitosamente"
+            ));
+        } else {
+            sendResponse(array(
+                "error" => true,
+                "mensaje" => "Error al confirmar carrito"
+            ));
+        }
+    }
+
     $request = new Request();
     $action = $request->action;
 
@@ -165,8 +190,12 @@
         case "eliminar-carrito":
             eliminarProductoCarrito($request);
         break;
-        case "obtener-items-carrito":
+        /*case "obtener-items-carrito":
             verCarrito();
+        break;*/
+        case "confirmar-carrito":
+            
+            confirmarCarrito($request);
         break;
         default:
             sendResponse(array(

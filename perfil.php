@@ -34,7 +34,7 @@
                     <p>Fecha de nacimiento: 02/05/1978</p>
                     <p>Dirección: <?= $usuario["Domicilio"]; ?></p>
                     <p>Localidad: <?= $usuario["NombreLoc"]; ?></p>
-                    <p>Teléfono: <?= $usuario["Telefono"]; ?> - Celular: </p>
+                    <p>Teléfono: <?= $usuario["Telefono"]; ?></p>
                 </div>
             </div>
             <div class="row">
@@ -48,7 +48,6 @@
                       <th>Fecha</th>
                       <th>Total</th>
                       <th>Forma de Pago</th>
-                      <th>Estado</th>
                       <th>Acciones</th>
                     </tr>
                   </thead>
@@ -57,14 +56,12 @@
                         <td>11/07/2015</td>
                         <td>$ 580.00</td>
                         <td>Efectivo</td>
-                        <td>En camino</td>
                         <td><a href="#">Ver detalle</a></td>
                       </tr>
                        <tr>
                         <td>09/07/2015</td>
                         <td>$ 480.00</td>
                         <td>Efectivo</td>
-                        <td>Pagada</td>
                         <td><a href="#">Ver detalle</a></td>
                       </tr>
                   </tbody>
