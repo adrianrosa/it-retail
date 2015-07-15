@@ -27,6 +27,7 @@
         session_start();  
         $_SESSION["email"] = $user["Email"];
         $_SESSION["id"] = $user["IdUsuario"];
+        $_SESSION["domicilio"] = $user["Domicilio"];
         $_SESSION["autenticado"] = "si";
         $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
         //$results->free();

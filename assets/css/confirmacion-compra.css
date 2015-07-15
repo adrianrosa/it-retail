@@ -1,0 +1,24 @@
+ body{text-align: center;}
+.subtitulo{background-color: #ddd; padding: 10px; border-bottom:1px solid; margin-top: 0px;}
+.separador{border:1px solid; margin-top: 20px; padding-bottom: 15px;}
+button{
+    margin-top: 10px;
+}
+input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 50%;
+}
+.input-corto{
+    width: 55px;
+}
+.btn-confirmar{
+    width: 25%;
+}
+#listado-carrito{ width:50%; margin:0 auto;}
+#listado-carrito #carrito{ padding-top: 5px; }
+#listado-carrito #carrito .confirmar-carrito {display:none;}
+
+.error-lugar, .error-fecha, .error-items{
+    color: red;
+}

@@ -1,5 +1,9 @@
 <?php
-    session_start('objcarrito');
+    if(!isset($_SESSION)) 
+    { 
+       session_start('objcarrito'); 
+    } 
+    
 
     class Carrito { 
         var $num_productos; 
@@ -40,7 +44,7 @@
             }
             return false;
         } 
-
+        
         function imprimeCarrito(){ 
             $this->suma_cantidad = 0;
             $suma = 0; 
@@ -64,9 +68,19 @@
 						</h3>";
             $html .= '<ol id="carrito">';
             
-            if( $this->num_productos == 0){
+            $itemsCount = false;
+            $contador= 0;
+            for ($i=0;$i<$this->num_productos;$i++){ 
+                    if($this->array_id_prod[$i]==0){
+                        $contador++;
+                    }
+            }
+            if($contador ==  $this->num_productos)
+                $itemsCount = true;
+            
+            if( $this->num_productos == 0 ||  $itemsCount){
                 $html .= '';
-                $html .= '<li id="no-items">0 artículos </li><li id="total-carrito" class="linea-carrito-vacio total">Total: $ 0.00 </li>';
+                $html .= '<li class="no-items">0 artículos </li><li id="total-carrito" class="linea-carrito-vacio total">Total: $ 0.00 </li>';
             } else {
                 for ($i=0;$i<$this->num_productos;$i++){ 
                     if($this->array_id_prod[$i]!=0){
@@ -83,7 +97,7 @@
                     }
                 }
                 $html .= "<li id='importe-total'  class='linea-carrito total'>Total: $ ". $suma . "</li>";
-                $html = $html .  '<li class="ver-carrito"><a href="ver-carrito.php" class="btn btn-primary">Ver carrito</a></li>';
+                //$html = $html .  '<li class="ver-carrito"><a href="ver-carrito.php" class="btn btn-primary">Ver carrito</a></li>';
                 $html = $html .  '<li class="confirmar-carrito"><a href="confirmar-carrito.php" class="btn btn-primary">Confirmar compra</a></li>';
             }
             /*if( $this->num_productos == 0 ){
@@ -124,7 +138,7 @@
             $html = $html .  '</ol>';
             return $html;
         } 
-
+        
         function eliminaProducto($linea){ 
             $this->array_id_prod[$linea]=0;
             return true;

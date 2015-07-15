@@ -10,7 +10,7 @@ class Usuario
     }
     
     public function iniciarSesionUsuario($usuario){
-        $query = "SELECT * FROM Usuario WHERE Email = '" . $usuario["Email"] . "' AND Password = '". $usuario["Password"] ."' ;";
+        $query = "SELECT U.*, C.* FROM Usuario as U, Cliente as C WHERE U.Email = '" . $usuario["Email"] . "' AND U.Password = '". $usuario["Password"] ."' AND U.IdUsuario = C.Usuario ;";
         $result = $this->conexion->query($query);
         return $result->fetch_assoc();
     }
