@@ -32,7 +32,8 @@
                 echo '<button id="btn-login" class="btn btn-primary" onclick="window.location=\'login.php\';">LOGIN</button> &nbsp;&nbsp;';
                 echo '<button class="btn btn-success" onclick="window.location=\'registro.php\';">REGISTRARSE</button>';
             } else {
-                echo '<a href="confirmar-carrito.php"><span class="panel-login glyphicon glyphicon-shopping-cart"></span> Carrito</a>&nbsp;&nbsp;<a href="perfil.php?usuario='.$_SESSION["email"].'&id='.$_SESSION["id"].'"><span class="panel-login glyphicon glyphicon-user"></span> Usuario: '.$_SESSION["email"].'</a>';
+    //<a href="confirmar-carrito.php"><span class="panel-login glyphicon glyphicon-shopping-cart"></span> Carrito</a>&nbsp;&nbsp;
+                echo '<a href="perfil.php?usuario='.$_SESSION["email"].'&id='.$_SESSION["id"].'"><span class="panel-login glyphicon glyphicon-user"></span> Usuario: '.$_SESSION["email"].'</a>';
                 echo ' &nbsp;&nbsp; <a href="salir.php"><span class="panel-login glyphicon glyphicon-off"></span> Salir</a>';
             } ?>   
         </div>

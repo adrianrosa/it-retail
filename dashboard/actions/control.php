@@ -22,6 +22,8 @@
         session_start();  
         $_SESSION["email"] = $user["Email"];
         $_SESSION["autenticado"] = "si";
+        $_SESSION["id"] = $user["IdUsuario"];
+        $_SESSION["domicilio"] = $user["Domicilio"];
         $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
         //$rs->close();
         header("Location: ../categorias.php");
