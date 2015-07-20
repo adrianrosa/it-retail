@@ -119,7 +119,7 @@
                         </div>        
                     <?php  } ?>               
                 <input type="submit" class="btn btn-primary btn-accion" name="action" value="<?= $action; ?>"/>
-                <button id="cancelar" class="btn btn-default" onclick="window.location='sliders.php'; return false;">Cancelar</button>
+                <button id="cancelar" class="btn btn-default" onclick="window.location='productos.php'; return false;">Cancelar</button>
             </form>
         </div>
       </div>

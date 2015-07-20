@@ -6,9 +6,9 @@
     URI.TEMPLATE_CATEGORIAS = "assets/templates/listado-categorias.html";
     
     var $tableBody = $("#tabla-categorias tbody");
-    
+   
     var getCategorias = function(){
-        
+        $(".loading-div").show();
         $.get(URI.TEMPLATE_CATEGORIAS, function(template_text){
             console.log(template_text);
             
@@ -24,7 +24,7 @@
                     
                     var template = Handlebars.compile(template_text);
                     var html = template(context);
-                    
+                    $(".loading-div").hide();
                     $("#tabla-categorias tbody").html(html);
                 }
             });       

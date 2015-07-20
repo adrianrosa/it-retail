@@ -1,8 +1,22 @@
+<?php 
+    $seccion="Contacto"; 
+    include("./models/carrito.php");  
+    if (!isset($_SESSION["objcarrito"])){ 
+   	    $_SESSION["objcarrito"] = new Carrito(); 
+    }
+?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
         <?php require('partials/header.php') ?>		
 		<link rel="stylesheet" href="./assets/css/contacto.css">
+        <script type="text/javascript">
+			window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+			d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+			_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+			$.src="http://v2.zopim.com/?2XhXhmsPbVJZT3JmcKAR5Uan1xakQxyD";z.t=+new Date;$.
+			type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+		</script>
     </head>
     <body>
 	
@@ -13,7 +27,7 @@
 
             <div class="row">
 			
-				<div class="col-md-2"></div>
+				<!--<div class="col-md-2"></div> -->
 				
 				<!-- FORMULARIO DE CONTACTO -->
 				<div class="col-md-8 form-contacto">
@@ -59,21 +73,21 @@
 					</form>
 				</div>
 				
-				<div class="col-md-2"></div>
+				<!--<div class="col-md-2"></div> -->
 						
 			</div>
 			
 			<!-- CONTACTOS -->
 			<div class="row">
 			
-				<div class="col-md-3"></div>
-				<div class="col-md-6 contactos">
+				<!--<div class="col-md-3"></div>-->
+				<div class="col-md-8 contactos">
 					<h3>Comunicate con nosotros: </h3><br />
 					<span class="glyphicon glyphicon-earphone"></span> 4-222-5231 <br /><br />
 					<a href="mailto:mail@mail.com"><span class="glyphicon glyphicon-envelope"></span> mail@mail.com </a> <br /><br />
 					<a href="http://www.facebook.com" target="_blank"><span class="glyphicon glyphicon-thumbs-up"></span> Fan page de facebook </a> <br /><br />
 				</div>
-				<div class="col-md-3"></div>
+				<!--<div class="col-md-3"></div>-->
 				
 			</div>
 			

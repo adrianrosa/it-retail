@@ -6,7 +6,7 @@
     URI.TEMPLATE_SLIDERS = "assets/templates/listado-sliders.html";
     
     var getSliders = function(){
-        
+        $(".loading-div").show();
         $.get(URI.TEMPLATE_SLIDERS, function(template_text){
             console.log(template_text);
             console.log(URI.GET_SLIDERS);
@@ -22,11 +22,11 @@
                     
                     var template = Handlebars.compile(template_text);
                     var html = template(context);
-                    
+                    $(".loading-div").hide();
                     $("#tabla-sliders tbody").html(html);
                 }
             });       
-        })        
+        });        
     };
     
     var deleteSlider = function(sliderID){

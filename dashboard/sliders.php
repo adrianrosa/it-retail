@@ -18,6 +18,7 @@
                       <h1 class="page-header">Sliders</h1>
                       <a id="crear-slider" class="btn btn-primary nuevo">Nuevo registro</a>
                       <div class="table-responsive">
+                          <div class="loading-div"><img src="./assets/img/ajax-loader.gif" ></div>
                         <table id="tabla-sliders" class="table table-striped tabla-general table_sort">
                           <thead>
                             <tr>

@@ -1,5 +1,5 @@
 <?php
-    //session_name('user_id_session');
+    session_name('ecommerce');
     session_start();
     session_destroy();
     header("Location: index.php");

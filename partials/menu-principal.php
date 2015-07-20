@@ -18,9 +18,9 @@
                 <li>
                     <a class="item-menu" href="productos.php">Productos</a>
                 </li>
-                <li>
+                <!--<li>
                     <a class="item-menu" href="#">Nosotros</a>
-                </li>
+                </li> -->
                 <li>
                     <a class="item-menu" href="contacto.php">Contacto</a>
                 </li>

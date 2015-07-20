@@ -1,6 +1,6 @@
 <?php 
 
-    //session_name('user_id_session');
+    session_name('ecommerce');
     session_start();
 
     if($_SESSION["autenticado"] != "si"){

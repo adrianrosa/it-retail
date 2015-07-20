@@ -23,7 +23,7 @@
     
     //if($rs->num_rows > 0){
     if(!empty($user["Email"])){
-        //session_name('user_id_session');
+        session_name('ecommerce');
         session_start();  
         $_SESSION["email"] = $user["Email"];
         $_SESSION["id"] = $user["IdUsuario"];

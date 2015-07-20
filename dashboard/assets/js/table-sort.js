@@ -1,5 +1,5 @@
 (function ($) {
-    "use strict";
+    //"use strict";
     $.fn.sort_table = function(options) {
         var cur_table = this;
         var thead = null;

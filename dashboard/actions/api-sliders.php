@@ -136,7 +136,7 @@
             if(isset($idImg) && $idImg !=null)
                 actualizar($request, $idImg);
 	    else
-            	actualizar($request, 0);
+            	actualizar($request, null);
         break;
         case "eliminar":
             eliminar($request);

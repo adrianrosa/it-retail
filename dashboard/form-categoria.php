@@ -61,8 +61,8 @@
                       
                   </div>
                 </div>
-                <input type="submit" class="btn btn-primary btn-accion" name="action" value="<?= $action; ?>"/>
-                <button id="cancelar" class="btn btn-default" onclick="window.location='sliders.php'; return false;">Cancelar</button>
+                <input type="submit" class="btn btn-primary btn-accion" id="guardar" name="action" value="<?= $action; ?>"/>
+                <button id="cancelar" class="btn btn-default" onclick="window.location='categorias.php'; return false;">Cancelar</button>
             </form>
         </div>
       </div>

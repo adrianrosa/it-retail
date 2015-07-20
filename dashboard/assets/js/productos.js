@@ -6,7 +6,7 @@
     URI.TEMPLATE_PRODUCTOS = "assets/templates/listado-productos.html";
     
     var getProductos = function(){
-        
+        $(".loading-div").show();
         $.get(URI.TEMPLATE_PRODUCTOS, function(template_text){
             console.log(template_text);
             console.log(URI.GET_PRODUCTOS);
@@ -22,7 +22,7 @@
                     
                     var template = Handlebars.compile(template_text);
                     var html = template(context);
-                    
+                    $(".loading-div").hide();
                     $("#tabla-productos tbody").html(html);
                 }
             });       

@@ -100,13 +100,6 @@
 					</div>
 				</div>
 				<div class="separador">
-					<h2 class="subtitulo">Costo de Envío</h2>
-					<div>
-						<p>Para pedidos inferiores a $ 500.00 el costo de envío es de $100.00. Mayor o igual a $ 500.00 envío gratis.</p>
-						<p><b>El total de su pedido es: $ 580.00. El costo de envío: $ 0.00</b></p>
-					</div>
-				</div>
-				<div class="separador">
 					<h2 class="subtitulo">Revisión del Pedido</h2>
 					<div id="listado-carrito">
 						

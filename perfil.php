@@ -40,33 +40,7 @@
             <div class="row">
                 <a class="btn btn-primary" href="confirmar-carrito.php">Ver mi carrito actual</a>
             </div>
-            <div class="row compras">
-                <h2>Compras</h2>
-                <table id="tabla-compras" class="table table-bordered tabla-general table_sort">
-                  <thead>
-                    <tr>
-                      <th>Fecha</th>
-                      <th>Total</th>
-                      <th>Forma de Pago</th>
-                      <th>Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                        <td>11/07/2015</td>
-                        <td>$ 580.00</td>
-                        <td>Efectivo</td>
-                        <td><a href="#">Ver detalle</a></td>
-                      </tr>
-                       <tr>
-                        <td>09/07/2015</td>
-                        <td>$ 480.00</td>
-                        <td>Efectivo</td>
-                        <td><a href="#">Ver detalle</a></td>
-                      </tr>
-                  </tbody>
-                </table>
-            </div>
+            
             <?php require('./partials/footer.php'); ?>
 			
         </div>   

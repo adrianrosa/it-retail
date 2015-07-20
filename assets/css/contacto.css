@@ -1,11 +1,13 @@
 .form-contacto
 {
 	margin-top: 30px;
+    margin: 0 auto;
 }
 
 .form-contacto legend{
 	font-size: 30px;
 	color: #449d44;
+
 }
 
 .contactos
@@ -17,6 +19,7 @@
 	font-size: 16px;
 	color: #337ab7;
 	text-align: center;
+    margin: 0 auto;
 }
 
 .contactos h3

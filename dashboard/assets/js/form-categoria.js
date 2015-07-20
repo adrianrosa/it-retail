@@ -52,6 +52,7 @@
     
 
     $("#form-categoria").on("submit", function(){
+        
         cleanFormError();
         if(validarFormData()){
             //Si hay un input oculto con el id, estamos editando, de lo contrario, creando uno nuevo

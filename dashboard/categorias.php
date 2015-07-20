@@ -14,7 +14,8 @@
         <div id="main-content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Categorías</h1>
            <a id="crear-categoria" class="btn btn-primary nuevo">Nuevo registro</a>
-          <div class="table-responsive">
+          <div class="table-responsive">      
+              <div class="loading-div"><img src="./assets/img/ajax-loader.gif" ></div>
             <table id="tabla-categorias" class="table table-striped tabla-general table_sort">
               <thead>
                 <tr>
@@ -25,7 +26,8 @@
                   <th class="no-sort">Acciones</th>
                 </tr>
               </thead>
-                <tbody>                                     
+                <tbody>    
+                    
               </tbody>
             </table>
           </div>

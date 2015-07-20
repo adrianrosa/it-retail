@@ -47,8 +47,8 @@
     }
     
     $('body').on('click', 'a.eliminar-carrito', function(e){
-       /*if(!confirmarBorrado(e, $(this)))
-           return false;*/
+       if(!confirmarBorrado(e, $(this)))
+           return false;
         var url = $(this).attr('url');
         $.ajax({
             url: url,
@@ -62,7 +62,7 @@
     
     function confirmarBorrado(e, elem){
         e.preventDefault();
-        var producto = elem.next().find('.detalles').find('.nombre-producto').html();
+        var producto = elem.next('div').find('.nombre').html();
         if( ! confirm("Está seguro que desea eliminar el producto " + producto + " del carrito?") ){
             return false;
         }

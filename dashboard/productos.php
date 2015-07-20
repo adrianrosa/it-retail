@@ -15,6 +15,7 @@
           <h1 class="page-header">Productos</h1>
           <a id="crear" class="btn btn-primary nuevo" href="form-producto.php">Nuevo registro</a>
           <div class="table-responsive">
+              <div class="loading-div"><img src="./assets/img/ajax-loader.gif" ></div>
             <table id="tabla-productos" class="table table-striped tabla-general table_sort">
               <thead>
                 <tr>
